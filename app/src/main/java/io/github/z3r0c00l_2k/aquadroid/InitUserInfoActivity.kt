@@ -11,6 +11,8 @@ import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_init_user_info.*
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 class InitUserInfoActivity : AppCompatActivity() {
 
@@ -85,6 +87,12 @@ class InitUserInfoActivity : AppCompatActivity() {
                     editor.putInt(AppUtils.AGE_KEY, age.toInt())
                     editor.putInt(AppUtils.WEIGHT_KEY, weight.toInt())
                     editor.putInt(AppUtils.WORK_TIME_KRY, workTime.toInt())
+
+                    val totalIntake = AppUtils.calculateIntake(age.toInt(), weight.toInt(), workTime.toInt())
+                    val df = DecimalFormat("#")
+                    df.roundingMode = RoundingMode.CEILING
+                    editor.putInt(AppUtils.TOTAL_INTAKE, df.format(totalIntake).toInt())
+
                     editor.apply()
                     startActivity(Intent(this, MainActivity::class.java))
                     finish()

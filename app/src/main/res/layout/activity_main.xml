@@ -63,12 +63,12 @@
             app:layout_constraintStart_toStartOf="parent"/>
     <TextView
             android:text="33 / 70 Glass"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:textAlignment="center"
             android:textColor="@color/colorWhite"
             android:textSize="25sp"
-            android:textStyle="bold"
             android:layout_height="wrap_content"
-            android:id="@+id/textView5" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:id="@+id/intakeText" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintTop_toBottomOf="@+id/waterLevelView" android:layout_marginTop="24dp"/>
 
