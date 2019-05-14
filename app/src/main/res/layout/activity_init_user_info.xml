@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/init_user_info_parent_layout"
+        android:background="@drawable/splash_bg_gradiant"
+        tools:context=".InitUserInfoActivity">
+    <Button
+
+            android:text="Continue"
+            style="@android:style/Widget.Material.Button.Borderless"
+            android:drawableEnd="@drawable/ic_arrow_circle_right_solid"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnContinue" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    <TextView
+            android:text="Please provide some infomation to constomize the experience for you...!!"
+            android:layout_width="0dp"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textColor="@color/colorBalck"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="24dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/btnContinue" android:layout_marginTop="16dp"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView3">
+        <com.google.android.material.textfield.TextInputLayout
+                android:theme="@style/TextInputLayoutAppearance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="16dp"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                android:id="@+id/etName" app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:paddingStart="10dp"
+                    android:paddingBottom="10dp"
+                    android:background="@null"
+                    android:hint="Enter your name" android:inputType="textPersonName"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:theme="@style/TextInputLayoutAppearance"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/etName"
+                android:id="@+id/etAge">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:paddingStart="10dp"
+                    android:paddingBottom="10dp"
+                    android:background="@null"
+                    android:maxLength="2"
+                    android:hint="Enter your age" android:inputType="numberSigned"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:theme="@style/TextInputLayoutAppearance"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="16dp" android:layout_marginEnd="16dp"
+                app:layout_constraintHorizontal_bias="0.0" android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/radioGender" android:id="@+id/etWeight">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:paddingStart="10dp"
+                    android:paddingBottom="10dp"
+                    android:background="@null"
+                    android:maxLength="3"
+                    android:hint="Enter your weight in Kg" android:inputType="numberSigned"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:theme="@style/TextInputLayoutAppearance"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/etWeight"
+                android:id="@+id/etWorkTime">
+
+            <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:paddingStart="10dp"
+                    android:paddingBottom="10dp"
+                    android:background="@null"
+                    android:maxLength="3"
+                    android:hint=" You daily work time in min/day" android:inputType="numberSigned"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <co.ceryle.radiorealbutton.RadioRealButtonGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:rrbg_animateDrawables_enter="overshoot"
+                app:rrbg_animateTexts_enter="overshoot"
+                app:rrbg_dividerColor="@color/colorBalck"
+                app:rrbg_dividerSize="1dp"
+                app:rrbg_radius="6dp"
+                app:rrbg_selectorColor="@color/colorSkyBlue"
+                app:rrbg_selectorSize="6dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@+id/etAge"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:id="@+id/radioGender">
+
+            <co.ceryle.radiorealbutton.RadioRealButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:rrb_drawable="@drawable/ic_male"
+                    app:rrb_drawableHeight="36dp"
+                    app:rrb_drawablePadding="8dp"
+                    app:rrb_drawableWidth="36dp"
+                    app:rrb_ripple="true"
+                    app:rrb_rippleColor="@color/colorBalck"
+                    app:rrb_text="Male"
+                    app:rrb_textColor="@color/grey"/>
+
+            <co.ceryle.radiorealbutton.RadioRealButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:rrb_drawable="@drawable/ic_female"
+                    app:rrb_drawableGravity="right"
+                    app:rrb_drawableHeight="36dp"
+                    app:rrb_drawablePadding="8dp"
+                    app:rrb_drawableWidth="36dp"
+                    app:rrb_ripple="true"
+                    app:rrb_rippleColor="@color/colorBalck"
+                    app:rrb_text="Female"
+                    app:rrb_textColor="@color/grey"/>
+        </co.ceryle.radiorealbutton.RadioRealButtonGroup>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
