@@ -37,4 +37,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'com.github.ceryle:RadioRealButton:v2.1.1'
     implementation 'com.google.android.material:material:1.0.0'
+    implementation 'me.itangqi.waveloadingview:library:0.3.5'
 }

@@ -9,6 +9,14 @@
         <item name="android:fontFamily">@font/kanit</item>
     </style>
 
+    <style name="MainTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorSecondary</item>
+        <item name="colorPrimaryDark">@color/colorSecondary</item>
+        <item name="colorAccent">@color/colorSkyBlue</item>
+        <item name="android:fontFamily">@font/kanit</item>
+    </style>
+
     <style name="ErrorText" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/red</item>
         <item name="android:textSize">16sp</item>
