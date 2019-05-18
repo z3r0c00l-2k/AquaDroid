@@ -5,6 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/main_activity_parent"
         android:background="@drawable/main_bg_gradiant"
         tools:context=".MainActivity">
     <ImageButton
