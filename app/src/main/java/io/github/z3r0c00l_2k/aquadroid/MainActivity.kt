@@ -37,15 +37,18 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
 
-        notificStatus = sharedPref.getBoolean(AppUtils.NOTIFICATION_STATUS_KEY, false)
+        notificStatus = sharedPref.getBoolean(AppUtils.NOTIFICATION_STATUS_KEY, true)
+        val alarm = AlarmHelper()
+        alarm.cancelAlarm(this)
         if (notificStatus) {
             btnNotific.background = getDrawable(R.drawable.ic_bell)
+            alarm.setAlarm(this, sharedPref.getInt(AppUtils.NOTIFICATION_FREQUENCY_KEY, 30).toLong())
         } else {
             btnNotific.background = getDrawable(R.drawable.ic_bell_disabled)
         }
 
 
-        sqliteHelper.addAll(dateNow, 20, totalIntake)
+        sqliteHelper.addAll(dateNow, 0, totalIntake)
 
         inTook = sqliteHelper.getIntook(dateNow)
 
@@ -76,17 +79,13 @@ class MainActivity : AppCompatActivity() {
             if (notificStatus) {
                 btnNotific.background = getDrawable(R.drawable.ic_bell)
                 Snackbar.make(it, "Notification Enabled..", Snackbar.LENGTH_SHORT).show()
+                alarm.setAlarm(this, sharedPref.getInt(AppUtils.NOTIFICATION_FREQUENCY_KEY, 30).toLong())
             } else {
                 btnNotific.background = getDrawable(R.drawable.ic_bell_disabled)
                 Snackbar.make(it, "Notification Disabled..", Snackbar.LENGTH_SHORT).show()
+                alarm.cancelAlarm(this)
             }
         }
-
-        val alarm = AlarmHelper()
-        alarm.cancelAlarm(this)
-        alarm.setAlarm(this, sharedPref.getInt(AppUtils.NOTIFICATION_FREQUENCY_KEY, 30).toLong())
-
-
     }
 
     private fun setWaterLevel(inTook: Int, totalIntake: Int) {
