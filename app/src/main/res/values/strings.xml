@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AquaDroid</string>
+    <string name="pref_notification_message_value">Hey... Lets drink some water....</string>
 </resources>

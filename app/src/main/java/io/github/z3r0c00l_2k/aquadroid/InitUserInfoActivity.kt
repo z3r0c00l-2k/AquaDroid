@@ -11,6 +11,7 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
+import io.github.z3r0c00l_2k.aquadroid.utils.AppUtils
 import kotlinx.android.synthetic.main.activity_init_user_info.*
 import java.math.RoundingMode
 import java.text.DecimalFormat

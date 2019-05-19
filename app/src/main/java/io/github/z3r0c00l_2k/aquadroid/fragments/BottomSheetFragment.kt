@@ -1,4 +1,4 @@
-package io.github.z3r0c00l_2k.aquadroid
+package io.github.z3r0c00l_2k.aquadroid.fragments
 
 import android.app.TimePickerDialog
 import android.content.Context
@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import io.github.z3r0c00l_2k.aquadroid.R
+import io.github.z3r0c00l_2k.aquadroid.utils.AppUtils
 import kotlinx.android.synthetic.main.bottom_sheet_fragment.*
 import java.math.RoundingMode
 import java.text.DecimalFormat

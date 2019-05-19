@@ -3,6 +3,9 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="io.github.z3r0c00l_2k.aquadroid">
 
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -23,6 +26,12 @@
         <activity android:name=".MainActivity"
                   android:theme="@style/MainTheme">
         </activity>
+        <receiver android:name=".recievers.NotifierReceiver"/>
+        <receiver android:name=".recievers.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

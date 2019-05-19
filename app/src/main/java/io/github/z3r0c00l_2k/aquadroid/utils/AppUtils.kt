@@ -1,4 +1,4 @@
-package io.github.z3r0c00l_2k.aquadroid
+package io.github.z3r0c00l_2k.aquadroid.utils
 
 import java.text.SimpleDateFormat
 import java.util.*

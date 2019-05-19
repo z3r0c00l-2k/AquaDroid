@@ -5,6 +5,10 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
+import io.github.z3r0c00l_2k.aquadroid.fragments.BottomSheetFragment
+import io.github.z3r0c00l_2k.aquadroid.helpers.AlarmHelper
+import io.github.z3r0c00l_2k.aquadroid.helpers.SqliteHelper
+import io.github.z3r0c00l_2k.aquadroid.utils.AppUtils
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -77,6 +81,11 @@ class MainActivity : AppCompatActivity() {
                 Snackbar.make(it, "Notification Disabled..", Snackbar.LENGTH_SHORT).show()
             }
         }
+
+        val alarm = AlarmHelper()
+        alarm.cancelAlarm(this)
+        alarm.setAlarm(this, sharedPref.getInt(AppUtils.NOTIFICATION_FREQUENCY_KEY, 30).toLong())
+
 
     }
 
