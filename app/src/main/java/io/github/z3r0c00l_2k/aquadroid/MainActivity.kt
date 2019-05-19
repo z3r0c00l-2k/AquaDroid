@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity() {
 
     private var totalIntake: Int = 0
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var sharedPref: SharedPreferences
     private lateinit var sqliteHelper: SqliteHelper
     private lateinit var dateNow: String
+    private var notificStatus: Boolean = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,12 +33,24 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
 
+        notificStatus = sharedPref.getBoolean(AppUtils.NOTIFICATION_STATUS_KEY, false)
+        if (notificStatus) {
+            btnNotific.background = getDrawable(R.drawable.ic_bell)
+        } else {
+            btnNotific.background = getDrawable(R.drawable.ic_bell_disabled)
+        }
 
-        val r = sqliteHelper.addAll(dateNow, 20, totalIntake)
+
+        sqliteHelper.addAll(dateNow, 20, totalIntake)
 
         inTook = sqliteHelper.getIntook(dateNow)
 
         setWaterLevel(inTook, totalIntake)
+
+        btnMenu.setOnClickListener {
+            val bottomSheetFragment = BottomSheetFragment(this)
+            bottomSheetFragment.show(supportFragmentManager, bottomSheetFragment.tag)
+        }
 
         fabAdd.setOnClickListener {
             if (inTook < totalIntake) {
@@ -50,6 +64,18 @@ class MainActivity : AppCompatActivity() {
                 Snackbar.make(it, "You achieved the goal", Snackbar.LENGTH_SHORT).show()
             }
 
+        }
+
+        btnNotific.setOnClickListener {
+            notificStatus = !notificStatus
+            sharedPref.edit().putBoolean(AppUtils.NOTIFICATION_STATUS_KEY, notificStatus).apply()
+            if (notificStatus) {
+                btnNotific.background = getDrawable(R.drawable.ic_bell)
+                Snackbar.make(it, "Notification Enabled..", Snackbar.LENGTH_SHORT).show()
+            } else {
+                btnNotific.background = getDrawable(R.drawable.ic_bell_disabled)
+                Snackbar.make(it, "Notification Disabled..", Snackbar.LENGTH_SHORT).show()
+            }
         }
 
     }

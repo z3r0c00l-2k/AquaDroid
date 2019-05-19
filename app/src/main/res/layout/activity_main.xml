@@ -40,7 +40,8 @@
             app:wlv_waveAmplitude="60"
             app:wlv_waveColor="@color/colorSecondaryDark"
             android:layout_marginStart="16dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/textView4" android:layout_marginBottom="8dp"/>
     <TextView
@@ -50,7 +51,8 @@
             android:textAlignment="center"
             android:textSize="20sp"
             android:textColor="@color/colorWhite"
-            android:id="@+id/textView4" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="24dp"
+            android:id="@+id/textView4" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="24dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="24dp"
             app:layout_constraintHorizontal_bias="0.0" app:layout_constraintBottom_toTopOf="@+id/fabAdd"
             android:layout_marginBottom="16dp"/>
@@ -60,7 +62,8 @@
             android:clickable="true" app:srcCompat="@drawable/ic_plus_solid"
             android:id="@+id/fabAdd"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="24dp"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent"/>
     <TextView
             android:text="33 / 70 Glass"
@@ -69,8 +72,8 @@
             android:textColor="@color/colorWhite"
             android:textSize="25sp"
             android:layout_height="wrap_content"
-            android:id="@+id/intakeText" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:id="@+id/intakeText" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintTop_toBottomOf="@+id/waterLevelView" android:layout_marginTop="24dp"/>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

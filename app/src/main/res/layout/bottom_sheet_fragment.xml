@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:background="@color/colorSkyBlue"
+        android:id="@+id/bottomSheetParent"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView3">
+    <TextView
+            android:text="Edit Your Info"
+            android:textSize="24sp"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="24dp"
+            android:layout_marginStart="16dp"/>
+    <Button
+            android:text="Update"
+            android:textColor="@color/colorWhite"
+            style="@android:style/Widget.Material.Button.Borderless"
+            android:drawableEnd="@drawable/ic_checked"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnUpdate" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:theme="@style/TextInputLayoutAppearance"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            android:id="@+id/etAge" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView7">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:paddingStart="10dp"
+                android:paddingBottom="10dp"
+                android:background="@null"
+                android:maxLength="2"
+                android:hint="Enter your age" android:inputType="numberSigned"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:theme="@style/TextInputLayoutAppearance"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp" android:layout_marginEnd="16dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:id="@+id/etWeight" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/etAge">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:paddingStart="10dp"
+                android:paddingBottom="10dp"
+                android:background="@null"
+                android:maxLength="3"
+                android:hint="Enter your weight in Kg" android:inputType="numberSigned"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:theme="@style/TextInputLayoutAppearance"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/etWeight"
+            android:id="@+id/etWorkTime">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:paddingStart="10dp"
+                android:paddingBottom="10dp"
+                android:background="@null"
+                android:maxLength="3"
+                android:hint=" You daily work time in min/day" android:inputType="numberSigned"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:theme="@style/TextInputLayoutAppearance"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/etWorkTime"
+            android:id="@+id/etWakeUpTime" app:layout_constraintEnd_toStartOf="@+id/etSleepTime"
+            android:layout_marginEnd="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:paddingStart="10dp"
+                android:clickable="true"
+                android:focusable="false"
+                android:paddingBottom="10dp"
+                android:background="@null"
+                android:hint="Your wake up time" android:inputType="numberSigned"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:theme="@style/TextInputLayoutAppearance"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/etWorkTime"
+            android:id="@+id/etSleepTime" app:layout_constraintStart_toEndOf="@+id/etWakeUpTime"
+            android:layout_marginStart="8dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:paddingStart="10dp"
+                android:paddingBottom="10dp"
+                android:clickable="true"
+                android:focusable="false"
+                android:background="@null"
+                android:hint="Your Sleep time" android:inputType="numberSigned"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <TextView
+            android:text="Notification Settings"
+            android:textSize="24sp"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/textView8"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="28dp" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/etSleepTime"/>
+    <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:theme="@style/TextInputLayoutAppearance"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView8"
+            android:id="@+id/etNotificationText">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:paddingStart="10dp"
+                android:paddingBottom="10dp"
+                android:background="@null"
+                android:hint="Notification messgae" android:inputType="text"/>
+    </com.google.android.material.textfield.TextInputLayout>
+    <co.ceryle.radiorealbutton.RadioRealButtonGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:rrbg_animateDrawables_enter="overshoot"
+            app:rrbg_animateTexts_enter="overshoot"
+            app:rrbg_dividerColor="@color/colorBalck"
+            app:rrbg_dividerSize="1dp"
+            app:rrbg_radius="6dp"
+            app:rrbg_selectorColor="@color/colorSkyBlue"
+            app:rrbg_selectorSize="6dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/etNotificationText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:id="@+id/radioNotificItervel" app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="16dp">
+
+        <co.ceryle.radiorealbutton.RadioRealButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:rrb_drawable="@drawable/ic_30_minutes"
+                app:rrb_drawableHeight="38dp"
+                app:rrb_drawablePadding="8dp"
+                app:rrb_drawableWidth="30dp"
+                app:rrb_ripple="true"
+                app:rrb_rippleColor="@color/colorBalck"
+                app:rrb_text="30 Minutes"
+                app:rrb_textColor="@color/grey"/>
+
+        <co.ceryle.radiorealbutton.RadioRealButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:rrb_drawable="@drawable/ic_45_minutes"
+                app:rrb_drawableGravity="right"
+                app:rrb_drawableHeight="30dp"
+                app:rrb_drawablePadding="8dp"
+                app:rrb_drawableWidth="30dp"
+                app:rrb_ripple="true"
+                app:rrb_rippleColor="@color/colorBalck"
+                app:rrb_text="45 Minutes"
+                app:rrb_textColor="@color/grey"/>
+        <co.ceryle.radiorealbutton.RadioRealButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:rrb_drawable="@drawable/ic_60_minutes"
+                app:rrb_drawableGravity="right"
+                app:rrb_drawableHeight="30dp"
+                app:rrb_drawablePadding="8dp"
+                app:rrb_drawableWidth="30dp"
+                app:rrb_ripple="true"
+                app:rrb_rippleColor="@color/colorBalck"
+                app:rrb_text="60 Minutes"
+                app:rrb_textColor="@color/grey"/>
+    </co.ceryle.radiorealbutton.RadioRealButtonGroup>
+</androidx.constraintlayout.widget.ConstraintLayout>

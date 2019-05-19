@@ -32,6 +32,7 @@ class AppUtils {
         val WORK_TIME_KEY = "worktime"
         val TOTAL_INTAKE = "totalintake"
         val NOTIFICATION_STATUS_KEY = "notificationstatus"
+        val NOTIFICATION_FREQUENCY_KEY = "notificationfrequency"
         val NOTIFICATION_MSG_KEY = "notificationmsg"
         val SLEEPING_TIME_KEY = "sleepingtime"
         val WAKEUP_TIME = "wakeuptime"
