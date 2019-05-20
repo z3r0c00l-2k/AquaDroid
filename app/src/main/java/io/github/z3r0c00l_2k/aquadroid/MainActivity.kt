@@ -41,10 +41,10 @@ class MainActivity : AppCompatActivity() {
         val alarm = AlarmHelper()
         alarm.cancelAlarm(this)
         if (notificStatus) {
-            btnNotific.background = getDrawable(R.drawable.ic_bell)
+            btnNotific.setImageDrawable(getDrawable(R.drawable.ic_bell))
             alarm.setAlarm(this, sharedPref.getInt(AppUtils.NOTIFICATION_FREQUENCY_KEY, 30).toLong())
         } else {
-            btnNotific.background = getDrawable(R.drawable.ic_bell_disabled)
+            btnNotific.setImageDrawable(getDrawable(R.drawable.ic_bell_disabled))
         }
 
 
@@ -77,11 +77,11 @@ class MainActivity : AppCompatActivity() {
             notificStatus = !notificStatus
             sharedPref.edit().putBoolean(AppUtils.NOTIFICATION_STATUS_KEY, notificStatus).apply()
             if (notificStatus) {
-                btnNotific.background = getDrawable(R.drawable.ic_bell)
+                btnNotific.setImageDrawable(getDrawable(R.drawable.ic_bell))
                 Snackbar.make(it, "Notification Enabled..", Snackbar.LENGTH_SHORT).show()
                 alarm.setAlarm(this, sharedPref.getInt(AppUtils.NOTIFICATION_FREQUENCY_KEY, 30).toLong())
             } else {
-                btnNotific.background = getDrawable(R.drawable.ic_bell_disabled)
+                btnNotific.setImageDrawable(getDrawable(R.drawable.ic_bell_disabled))
                 Snackbar.make(it, "Notification Disabled..", Snackbar.LENGTH_SHORT).show()
                 alarm.cancelAlarm(this)
             }
