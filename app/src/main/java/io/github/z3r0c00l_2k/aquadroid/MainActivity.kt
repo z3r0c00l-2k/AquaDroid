@@ -86,6 +86,10 @@ class MainActivity : AppCompatActivity() {
                 alarm.cancelAlarm(this)
             }
         }
+
+        btnStats.setOnClickListener {
+            startActivity(Intent(this, StatsActivity::class.java))
+        }
     }
 
     private fun setWaterLevel(inTook: Int, totalIntake: Int) {

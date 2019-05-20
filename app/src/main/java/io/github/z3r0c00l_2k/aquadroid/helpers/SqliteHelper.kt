@@ -2,10 +2,11 @@ package io.github.z3r0c00l_2k.aquadroid.helpers
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class SqliteHelper(context: Context) : SQLiteOpenHelper(
+class SqliteHelper(val context: Context) : SQLiteOpenHelper(
     context,
     DATABASE_NAME, null,
     DATABASE_VERSION
@@ -80,6 +81,13 @@ class SqliteHelper(context: Context) : SQLiteOpenHelper(
             }
         }
         return 0
+    }
+
+    fun getAllStats(): Cursor {
+        val selectQuery = "SELECT * FROM $TABLE_STATS"
+        val db = this.readableDatabase
+        return db.rawQuery(selectQuery, null)
+
     }
 
 }

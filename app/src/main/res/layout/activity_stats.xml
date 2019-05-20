@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/main_bg_gradiant"
+        tools:context=".StatsActivity">
+    <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chart"
+            android:layout_width="0dp"
+            android:layout_height="350dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@+id/greetings"/>
+    <ImageButton
+            android:background="?attr/selectableItemBackground"
+            android:layout_width="40dp"
+            android:layout_height="40dp" app:srcCompat="@drawable/ic_arrow_circle_left_solid"
+            android:id="@+id/btnBack" app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="16dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="16dp"/>
+    <TextView
+            android:text="Your Water Intake Habit"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView5"
+            app:layout_constraintStart_toEndOf="@+id/btnBack" android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp" app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+            android:text="0 %"
+            android:layout_width="wrap_content"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:layout_height="wrap_content"
+            android:id="@+id/totalIntakePercentage" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/chart"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/textView9"/>
+    <TextView
+            android:text="Average Glasses / Day : 0"
+            android:layout_width="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:layout_height="wrap_content"
+            android:id="@+id/avgGlassPD" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView9"
+            android:layout_marginBottom="18dp" app:layout_constraintBottom_toBottomOf="parent"/>
+    <TextView
+            android:text="Total Intake"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView9" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/totalIntakePercentage" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/avgGlassPD"/>
+    <TextView
+            android:text="Hello, User"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/greetings" android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/textView5"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
