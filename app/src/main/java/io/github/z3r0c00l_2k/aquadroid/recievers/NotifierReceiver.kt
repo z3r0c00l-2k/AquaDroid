@@ -22,7 +22,7 @@ class NotifierReceiver : BroadcastReceiver() {
 
         val title = context.resources.getString(R.string.app_name)
         val messageToShow = prefs.getString(
-            "message_to_show",
+            AppUtils.NOTIFICATION_MSG_KEY,
             context.resources.getString(R.string.pref_notification_message_value)
         )
 
