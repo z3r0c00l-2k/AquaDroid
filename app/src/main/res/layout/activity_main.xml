@@ -8,6 +8,12 @@
         android:id="@+id/main_activity_parent"
         android:background="@drawable/main_bg_gradiant"
         tools:context=".MainActivity">
+    <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp" app:srcCompat="@mipmap/ic_launcher_round"
+            android:id="@+id/imageView4"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"/>
     <ImageButton
             android:layout_width="50dp"
             android:layout_height="50dp"
