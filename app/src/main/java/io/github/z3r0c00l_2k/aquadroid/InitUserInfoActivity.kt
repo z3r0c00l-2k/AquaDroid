@@ -24,8 +24,8 @@ class InitUserInfoActivity : AppCompatActivity() {
     private var age: String = ""
     private var weight: String = ""
     private var workTime: String = ""
-    private var wakeupTime: String = ""
-    private var sleeingTime: String = ""
+    private var wakeupTime: Long = 0
+    private var sleepingTime: Long = 0
     private lateinit var sharedPref: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,26 +45,27 @@ class InitUserInfoActivity : AppCompatActivity() {
             }
         }
 
+        wakeupTime = sharedPref.getLong(AppUtils.WAKEUP_TIME, 1558323000000)
+        sleepingTime = sharedPref.getLong(AppUtils.SLEEPING_TIME_KEY, 1558369800000)
+
         etWakeUpTime.editText!!.setOnClickListener {
-            val hour: Int
-            val minute: Int
-            if (TextUtils.isEmpty(etWakeUpTime.editText!!.text)) {
-                val mCurrentTime = Calendar.getInstance()
-                hour = mCurrentTime.get(Calendar.HOUR_OF_DAY)
-                minute = mCurrentTime.get(Calendar.MINUTE)
-            } else {
-                val time = etWakeUpTime.editText!!.text.split(":")
-                hour = time[0].toInt()
-                minute = time[1].toInt()
-            }
+            val calendar = Calendar.getInstance()
+            calendar.timeInMillis = wakeupTime
+
             val mTimePicker: TimePickerDialog
             mTimePicker = TimePickerDialog(
                 this,
                 TimePickerDialog.OnTimeSetListener { timePicker, selectedHour, selectedMinute ->
+
+                    val time = Calendar.getInstance()
+                    time.set(Calendar.HOUR_OF_DAY, selectedHour)
+                    time.set(Calendar.MINUTE, selectedMinute)
+                    wakeupTime = time.timeInMillis
+
                     etWakeUpTime.editText!!.setText(
                         String.format("%02d:%02d", selectedHour, selectedMinute)
                     )
-                }, hour, minute, false
+                }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true
             )
             mTimePicker.setTitle("Select Wakeup Time")
             mTimePicker.show()
@@ -72,25 +73,23 @@ class InitUserInfoActivity : AppCompatActivity() {
 
 
         etSleepTime.editText!!.setOnClickListener {
-            val hour: Int
-            val minute: Int
-            if (TextUtils.isEmpty(etSleepTime.editText!!.text)) {
-                val mCurrentTime = Calendar.getInstance()
-                hour = mCurrentTime.get(Calendar.HOUR_OF_DAY)
-                minute = mCurrentTime.get(Calendar.MINUTE)
-            } else {
-                val time = etSleepTime.editText!!.text.split(":")
-                hour = time[0].toInt()
-                minute = time[1].toInt()
-            }
+            val calendar = Calendar.getInstance()
+            calendar.timeInMillis = sleepingTime
+
             val mTimePicker: TimePickerDialog
             mTimePicker = TimePickerDialog(
                 this,
                 TimePickerDialog.OnTimeSetListener { timePicker, selectedHour, selectedMinute ->
+
+                    val time = Calendar.getInstance()
+                    time.set(Calendar.HOUR_OF_DAY, selectedHour)
+                    time.set(Calendar.MINUTE, selectedMinute)
+                    sleepingTime = time.timeInMillis
+
                     etSleepTime.editText!!.setText(
                         String.format("%02d:%02d", selectedHour, selectedMinute)
                     )
-                }, hour, minute, false
+                }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true
             )
             mTimePicker.setTitle("Select Sleeping Time")
             mTimePicker.show()
@@ -105,8 +104,6 @@ class InitUserInfoActivity : AppCompatActivity() {
             age = etAge.editText!!.text.toString()
             weight = etWeight.editText!!.text.toString()
             workTime = etWorkTime.editText!!.text.toString()
-            wakeupTime = etWakeUpTime.editText!!.text.toString()
-            sleeingTime = etSleepTime.editText!!.text.toString()
 
             when {
                 TextUtils.isEmpty(name) -> Snackbar.make(it, "Please input your name", Snackbar.LENGTH_SHORT).show()
@@ -137,14 +134,6 @@ class InitUserInfoActivity : AppCompatActivity() {
                     "Please input a valid workout time",
                     Snackbar.LENGTH_SHORT
                 ).show()
-                TextUtils.isEmpty(wakeupTime) -> Snackbar.make(
-                    it,
-                    "Please input your wakeup time", Snackbar.LENGTH_SHORT
-                ).show()
-                TextUtils.isEmpty(sleeingTime) -> Snackbar.make(
-                    it,
-                    "Please input your sleeping time", Snackbar.LENGTH_SHORT
-                ).show()
                 else -> {
 
                     val editor = sharedPref.edit()
@@ -153,8 +142,8 @@ class InitUserInfoActivity : AppCompatActivity() {
                     editor.putInt(AppUtils.AGE_KEY, age.toInt())
                     editor.putInt(AppUtils.WEIGHT_KEY, weight.toInt())
                     editor.putInt(AppUtils.WORK_TIME_KEY, workTime.toInt())
-                    editor.putString(AppUtils.WAKEUP_TIME, wakeupTime)
-                    editor.putString(AppUtils.SLEEPING_TIME_KEY, sleeingTime)
+                    editor.putLong(AppUtils.WAKEUP_TIME, wakeupTime)
+                    editor.putLong(AppUtils.SLEEPING_TIME_KEY, sleepingTime)
 
                     val totalIntake = AppUtils.calculateIntake(age.toInt(), weight.toInt(), workTime.toInt())
                     val df = DecimalFormat("#")

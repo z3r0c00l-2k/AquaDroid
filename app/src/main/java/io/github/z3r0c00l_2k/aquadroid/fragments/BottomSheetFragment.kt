@@ -29,8 +29,8 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
     private var age: String = ""
     private var weight: String = ""
     private var workTime: String = ""
-    private var wakeupTime: String = ""
-    private var sleepingTime: String = ""
+    private var wakeupTime: Long = 0
+    private var sleepingTime: Long = 0
     private var notificMsg: String = ""
     private var notificFrequency: Int = 0
     private var currentToneUri: String? = ""
@@ -49,8 +49,6 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
         etAge.editText!!.setText("" + sharedPref.getInt(AppUtils.AGE_KEY, 0))
         etWeight.editText!!.setText("" + sharedPref.getInt(AppUtils.WEIGHT_KEY, 0))
         etWorkTime.editText!!.setText("" + sharedPref.getInt(AppUtils.WORK_TIME_KEY, 0))
-        etWakeUpTime.editText!!.setText(sharedPref.getString(AppUtils.WAKEUP_TIME, "00:00"))
-        etSleepTime.editText!!.setText(sharedPref.getString(AppUtils.SLEEPING_TIME_KEY, "00:00"))
         etNotificationText.editText!!.setText(
             sharedPref.getString(
                 AppUtils.NOTIFICATION_MSG_KEY,
@@ -92,27 +90,45 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
             startActivityForResult(intent, 999)
         }
 
+        wakeupTime = sharedPref.getLong(AppUtils.WAKEUP_TIME, 1558323000000)
+        sleepingTime = sharedPref.getLong(AppUtils.SLEEPING_TIME_KEY, 1558369800000)
+        val cal = Calendar.getInstance()
+        cal.timeInMillis = wakeupTime
+        etWakeUpTime.editText!!.setText(
+            String.format(
+                "%02d:%02d",
+                cal.get(Calendar.HOUR_OF_DAY),
+                cal.get(Calendar.MINUTE)
+            )
+        )
+        cal.timeInMillis = sleepingTime
+        etSleepTime.editText!!.setText(
+            String.format(
+                "%02d:%02d",
+                cal.get(Calendar.HOUR_OF_DAY),
+                cal.get(Calendar.MINUTE)
+            )
+        )
 
         etWakeUpTime.editText!!.setOnClickListener {
-            val hour: Int
-            val minute: Int
-            if (TextUtils.isEmpty(etWakeUpTime.editText!!.text)) {
-                val mCurrentTime = Calendar.getInstance()
-                hour = mCurrentTime.get(Calendar.HOUR_OF_DAY)
-                minute = mCurrentTime.get(Calendar.MINUTE)
-            } else {
-                val time = etWakeUpTime.editText!!.text.split(":")
-                hour = time[0].toInt()
-                minute = time[1].toInt()
-            }
+
+            val calendar = Calendar.getInstance()
+            calendar.timeInMillis = wakeupTime
+
             val mTimePicker: TimePickerDialog
             mTimePicker = TimePickerDialog(
                 mCtx,
                 TimePickerDialog.OnTimeSetListener { timePicker, selectedHour, selectedMinute ->
+
+                    val time = Calendar.getInstance()
+                    time.set(Calendar.HOUR_OF_DAY, selectedHour)
+                    time.set(Calendar.MINUTE, selectedMinute)
+                    wakeupTime = time.timeInMillis
+
                     etWakeUpTime.editText!!.setText(
                         String.format("%02d:%02d", selectedHour, selectedMinute)
                     )
-                }, hour, minute, false
+                }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true
             )
             mTimePicker.setTitle("Select Wakeup Time")
             mTimePicker.show()
@@ -120,25 +136,24 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
 
 
         etSleepTime.editText!!.setOnClickListener {
-            val hour: Int
-            val minute: Int
-            if (TextUtils.isEmpty(etSleepTime.editText!!.text)) {
-                val mCurrentTime = Calendar.getInstance()
-                hour = mCurrentTime.get(Calendar.HOUR_OF_DAY)
-                minute = mCurrentTime.get(Calendar.MINUTE)
-            } else {
-                val time = etSleepTime.editText!!.text.split(":")
-                hour = time[0].toInt()
-                minute = time[1].toInt()
-            }
+
+            val calendar = Calendar.getInstance()
+            calendar.timeInMillis = sleepingTime
+
             val mTimePicker: TimePickerDialog
             mTimePicker = TimePickerDialog(
                 mCtx,
                 TimePickerDialog.OnTimeSetListener { timePicker, selectedHour, selectedMinute ->
+
+                    val time = Calendar.getInstance()
+                    time.set(Calendar.HOUR_OF_DAY, selectedHour)
+                    time.set(Calendar.MINUTE, selectedMinute)
+                    sleepingTime = time.timeInMillis
+
                     etSleepTime.editText!!.setText(
                         String.format("%02d:%02d", selectedHour, selectedMinute)
                     )
-                }, hour, minute, false
+                }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true
             )
             mTimePicker.setTitle("Select Sleeping Time")
             mTimePicker.show()
@@ -149,8 +164,6 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
             age = etAge.editText!!.text.toString()
             weight = etWeight.editText!!.text.toString()
             workTime = etWorkTime.editText!!.text.toString()
-            wakeupTime = etWakeUpTime.editText!!.text.toString()
-            sleepingTime = etSleepTime.editText!!.text.toString()
             notificMsg = etNotificationText.editText!!.text.toString()
 
             when {
@@ -188,22 +201,14 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
                     "Please input a valid workout time",
                     Toast.LENGTH_SHORT
                 ).show()
-                TextUtils.isEmpty(wakeupTime) -> Toast.makeText(
-                    mCtx,
-                    "Please input your wakeup time", Toast.LENGTH_SHORT
-                ).show()
-                TextUtils.isEmpty(sleepingTime) -> Toast.makeText(
-                    mCtx,
-                    "Please input your sleeping time", Toast.LENGTH_SHORT
-                ).show()
                 else -> {
 
                     val editor = sharedPref.edit()
                     editor.putInt(AppUtils.AGE_KEY, age.toInt())
                     editor.putInt(AppUtils.WEIGHT_KEY, weight.toInt())
                     editor.putInt(AppUtils.WORK_TIME_KEY, workTime.toInt())
-                    editor.putString(AppUtils.WAKEUP_TIME, wakeupTime)
-                    editor.putString(AppUtils.SLEEPING_TIME_KEY, sleepingTime)
+                    editor.putLong(AppUtils.WAKEUP_TIME, wakeupTime)
+                    editor.putLong(AppUtils.SLEEPING_TIME_KEY, sleepingTime)
                     editor.putString(AppUtils.NOTIFICATION_MSG_KEY, notificMsg)
                     editor.putInt(AppUtils.NOTIFICATION_FREQUENCY_KEY, notificFrequency)
 

@@ -99,8 +99,8 @@ class NotificationHelper(val ctx: Context) {
         val notificationsNewMessage = prefs.getBoolean("notifications_new_message", true)
         var doNotDisturbOff = true
 
-        val startTimestamp = prefs.getLong("pref_notification_start", 0)
-        val stopTimestamp = prefs.getLong("pref_notification_stop", 0)
+        val startTimestamp = prefs.getLong(AppUtils.WAKEUP_TIME, 0)
+        val stopTimestamp = prefs.getLong(AppUtils.SLEEPING_TIME_KEY, 0)
 
         if (startTimestamp > 0 && stopTimestamp > 0) {
             val now = Calendar.getInstance().time
@@ -134,7 +134,7 @@ class NotificationHelper(val ctx: Context) {
         if (shallNotify()) {
             getManager()!!.notify(id.toInt(), notification.build())
         } else {
-            Log.i("WateryDroid", "dnd period")
+            Log.i("AquaDroid", "dnd period")
         }
     }
 
