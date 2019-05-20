@@ -37,13 +37,12 @@ class StatsActivity : AppCompatActivity() {
             finish()
         }
 
-        greetings.text = "Hello, " + sharedPref.getString(AppUtils.NAME_KEY, "User")
+        greetings.text = "Hello, " + sharedPref.getString(AppUtils.NAME_KEY, "User") + ". Your water intake habit"
 
         val entries = ArrayList<Entry>()
         val dateArray = ArrayList<String>()
 
         val cursor: Cursor = sqliteHelper.getAllStats()
-        Toast.makeText(this, "" + cursor.count, Toast.LENGTH_LONG).show()
 
         if (cursor.moveToFirst()) {
 
@@ -63,7 +62,7 @@ class StatsActivity : AppCompatActivity() {
         if (!entries.isEmpty()) {
 
             chart.description.isEnabled = false
-            chart.animateX(1500, Easing.Linear)
+            chart.animateY(1000, Easing.Linear)
             chart.viewPortHandler.setMaximumScaleX(1.5f)
             chart.xAxis.setDrawGridLines(false)
             chart.xAxis.position = XAxis.XAxisPosition.TOP
