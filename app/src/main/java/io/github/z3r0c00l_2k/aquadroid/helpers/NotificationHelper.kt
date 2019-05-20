@@ -7,9 +7,9 @@ import android.content.Context
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.media.AudioAttributes
+import android.media.RingtoneManager
 import android.net.Uri
 import android.os.Build
-import android.preference.PreferenceManager
 import android.util.Log
 import io.github.z3r0c00l_2k.aquadroid.R
 import io.github.z3r0c00l_2k.aquadroid.utils.AppUtils
@@ -25,7 +25,11 @@ class NotificationHelper(val ctx: Context) {
     private fun createChannels() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val prefs = ctx.getSharedPreferences(AppUtils.USERS_SHARED_PREF, AppUtils.PRIVATE_MODE)
-            val notificationsNewMessageRingtone = prefs.getString("notifications_new_message_ringtone", "")
+            val notificationsNewMessageRingtone = prefs.getString(
+                AppUtils.NOTIFICATION_TONE_URI_KEY, RingtoneManager.getDefaultUri(
+                    RingtoneManager.TYPE_NOTIFICATION
+                ).toString()
+            )
             val notificationChannel = NotificationChannel(
                 CHANNEL_ONE_ID,
                 CHANNEL_ONE_NAME, NotificationManager.IMPORTANCE_HIGH
@@ -49,7 +53,8 @@ class NotificationHelper(val ctx: Context) {
 
     fun getNotification(
         title: String,
-        body: String
+        body: String,
+        notificationsTone: String?
     ): Notification.Builder {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             return Notification.Builder(ctx.applicationContext, CHANNEL_ONE_ID)
@@ -67,8 +72,6 @@ class NotificationHelper(val ctx: Context) {
                 .setSmallIcon(R.drawable.ic_small_logo)
                 .setAutoCancel(true)
         } else {
-            val prefs = PreferenceManager.getDefaultSharedPreferences(ctx)
-            val notificationsNewMessageRingtone = prefs.getString("notifications_new_message_ringtone", "")
 
             val notification = Notification.Builder(ctx.applicationContext)
                 .setContentTitle(title)
@@ -82,14 +85,10 @@ class NotificationHelper(val ctx: Context) {
                 .setSmallIcon(R.drawable.ic_small_logo)
                 .setAutoCancel(true)
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                notification.setShowWhen(true)
-            }
+            notification.setShowWhen(true)
 
-            if (notificationsNewMessageRingtone!!.length > 0) {
+            notification.setSound(Uri.parse(notificationsTone))
 
-                notification.setSound(Uri.parse(notificationsNewMessageRingtone))
-            }
             return notification
         }
     }

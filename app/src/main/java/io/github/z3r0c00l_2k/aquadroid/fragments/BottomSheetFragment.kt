@@ -1,8 +1,12 @@
 package io.github.z3r0c00l_2k.aquadroid.fragments
 
+import android.app.Activity
 import android.app.TimePickerDialog
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
+import android.media.RingtoneManager
+import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.LayoutInflater
@@ -11,6 +15,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import io.github.z3r0c00l_2k.aquadroid.R
+import io.github.z3r0c00l_2k.aquadroid.helpers.AlarmHelper
 import io.github.z3r0c00l_2k.aquadroid.utils.AppUtils
 import kotlinx.android.synthetic.main.bottom_sheet_fragment.*
 import java.math.RoundingMode
@@ -28,11 +33,13 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
     private var sleepingTime: String = ""
     private var notificMsg: String = ""
     private var notificFrequency: Int = 0
+    private var currentToneUri: String? = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.bottom_sheet_fragment, container, false)
 
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,6 +57,11 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
                 "Hey... Lets drink some water...."
             )
         )
+        currentToneUri = sharedPref.getString(
+            AppUtils.NOTIFICATION_TONE_URI_KEY,
+            RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION).toString()
+        )
+        etRingtone.editText!!.setText(RingtoneManager.getRingtone(mCtx, Uri.parse(currentToneUri)).getTitle(mCtx))
 
         radioNotificItervel.setOnClickedButtonListener { button, position ->
             notificFrequency = when (position) {
@@ -68,6 +80,16 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
                 radioNotificItervel.position = 0
                 notificFrequency = 30
             }
+        }
+
+        etRingtone.editText!!.setOnClickListener {
+            val intent = Intent(RingtoneManager.ACTION_RINGTONE_PICKER)
+            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_NOTIFICATION)
+            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE, "Select ringtone for notifications:")
+            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_SILENT, false)
+            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_SHOW_DEFAULT, true)
+            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_EXISTING_URI, currentToneUri)
+            startActivityForResult(intent, 999)
         }
 
 
@@ -191,9 +213,24 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
                     editor.putInt(AppUtils.TOTAL_INTAKE, df.format(totalIntake).toInt())
                     editor.apply()
                     Toast.makeText(mCtx, "Values updated successfully", Toast.LENGTH_SHORT).show()
+                    val alarmHelper = AlarmHelper()
+                    alarmHelper.cancelAlarm(mCtx)
+                    alarmHelper.setAlarm(mCtx, sharedPref.getInt(AppUtils.NOTIFICATION_FREQUENCY_KEY, 30).toLong())
                     dismiss()
                 }
             }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode == Activity.RESULT_OK && requestCode == 999) {
+
+            val uri = data!!.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI) as Uri
+            currentToneUri = uri.toString()
+            sharedPref.edit().putString(AppUtils.NOTIFICATION_TONE_URI_KEY, currentToneUri).apply()
+            val ringtone = RingtoneManager.getRingtone(mCtx, uri)
+            etRingtone.editText!!.setText(ringtone.getTitle(mCtx))
+
         }
     }
 }

@@ -71,5 +71,6 @@ class AlarmHelper {
             PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
             PackageManager.DONT_KILL_APP
         )
+        Log.i("AlarmHelper", "Cancelling alarms")
     }
 }

@@ -36,5 +36,6 @@ class AppUtils {
         val NOTIFICATION_MSG_KEY = "notificationmsg"
         val SLEEPING_TIME_KEY = "sleepingtime"
         val WAKEUP_TIME = "wakeuptime"
+        val NOTIFICATION_TONE_URI_KEY = "notificationtone"
     }
 }
