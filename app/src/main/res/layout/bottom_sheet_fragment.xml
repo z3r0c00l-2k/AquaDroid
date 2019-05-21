@@ -31,28 +31,11 @@
             android:layout_width="0dp"
             android:theme="@style/TextInputLayoutAppearance"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-            android:id="@+id/etAge" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView7">
-
-        <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:paddingStart="10dp"
-                android:paddingBottom="10dp"
-                android:background="@null"
-                android:maxLength="2"
-                android:hint="Enter your age" android:inputType="numberSigned"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="0dp"
-            android:theme="@style/TextInputLayoutAppearance"
-            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp" android:layout_marginEnd="16dp"
             app:layout_constraintHorizontal_bias="0.0"
-            android:id="@+id/etWeight" android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/etAge">
+            android:id="@+id/etWeight" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView7">
 
         <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"

@@ -36,16 +36,11 @@
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-            <Spinner
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content" android:id="@+id/spinner"
-                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-                    app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="8dp"/>
             <me.itangqi.waveloadingview.WaveLoadingView
                     android:id="@+id/waterLevelView"
                     android:layout_width="250dp"
                     android:layout_height="0dp"
-                    app:wlv_borderColor="@color/colorSecondaryDark"
+                    app:wlv_borderColor="@color/colorSecondaryLigher"
                     app:wlv_borderWidth="8dp"
                     app:wlv_progressValue="70"
                     app:wlv_shapeType="circle"
@@ -55,13 +50,14 @@
                     app:wlv_titleCenterStrokeWidth="3dp"
                     app:wlv_titleCenter="40%"
                     app:wlv_titleCenterColor="@color/colorWhite"
-                    app:wlv_titleCenterSize="50sp"
+                    app:wlv_titleCenterSize="45sp"
                     app:wlv_waveAmplitude="60"
                     app:wlv_waveColor="@color/colorSecondaryDark"
-                    app:layout_constraintTop_toBottomOf="@+id/spinner" android:layout_marginStart="8dp"
+                    android:layout_marginStart="8dp"
                     app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
-                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="24dp"
-                    android:layout_marginBottom="24dp" app:layout_constraintBottom_toTopOf="@+id/linearLayout7"/>
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginBottom="24dp" app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
+                    android:layout_marginTop="16dp" app:layout_constraintTop_toTopOf="parent"/>
             <LinearLayout android:layout_width="wrap_content"
                           android:orientation="vertical"
                           android:gravity="center"
@@ -81,7 +77,7 @@
                         android:textColor="@color/colorBalck"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textView11"/>
+                        android:id="@+id/remainingIntake"/>
             </LinearLayout>
 
             <LinearLayout android:layout_width="wrap_content"
@@ -103,7 +99,7 @@
                         android:textColor="@color/colorBalck"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/textView13"/>
+                        android:id="@+id/targetIntake"/>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

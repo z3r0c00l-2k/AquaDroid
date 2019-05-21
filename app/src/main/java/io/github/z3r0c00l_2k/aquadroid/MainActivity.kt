@@ -3,6 +3,7 @@ package io.github.z3r0c00l_2k.aquadroid
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.TypedValue
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import io.github.z3r0c00l_2k.aquadroid.fragments.BottomSheetFragment
@@ -20,6 +21,9 @@ class MainActivity : AppCompatActivity() {
     private lateinit var sqliteHelper: SqliteHelper
     private lateinit var dateNow: String
     private var notificStatus: Boolean = false
+    private var selectedOption: Int? = null
+    private var selectedOptionName: String? = null
+    private var snackbar: Snackbar? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +33,8 @@ class MainActivity : AppCompatActivity() {
         sharedPref = getSharedPreferences(AppUtils.USERS_SHARED_PREF, AppUtils.PRIVATE_MODE)
         sqliteHelper = SqliteHelper(this)
         dateNow = AppUtils.getCurrentDate()!!
+        val outValue = TypedValue()
+        applicationContext.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
 
         totalIntake = sharedPref.getInt(AppUtils.TOTAL_INTAKE, 0)
 
@@ -60,18 +66,31 @@ class MainActivity : AppCompatActivity() {
         }
 
         fabAdd.setOnClickListener {
-            if (inTook < totalIntake) {
-                Snackbar.make(it, "Did you drank a glass of water..?", Snackbar.LENGTH_SHORT)
-                    .setAction("\t\t\tYes\t\t\t") {
-                    if (sqliteHelper.addIntook(dateNow) > 0) {
-                        inTook++
-                        setWaterLevel(inTook, totalIntake)
-                    }
-                }.show()
-            } else {
-                Snackbar.make(it, "You achieved the goal", Snackbar.LENGTH_SHORT).show()
-            }
+            if (selectedOption != null && selectedOptionName != null) {
+                if ((inTook * 100 / totalIntake) <= 140) {
+                    snackbar = Snackbar.make(it, "Did you drank $selectedOptionName..?", Snackbar.LENGTH_SHORT)
+                    snackbar!!.setAction("\t\t\tYes\t\t\t") {
+                        if (sqliteHelper.addIntook(dateNow, selectedOption!!) > 0) {
+                            inTook += selectedOption!!
+                            setWaterLevel(inTook, totalIntake)
 
+                            selectedOption = null
+                            selectedOptionName = null
+                            opAqua.background = getDrawable(outValue.resourceId)
+                            opCoffee.background = getDrawable(outValue.resourceId)
+                            opTea.background = getDrawable(outValue.resourceId)
+                            opSoftDrink.background = getDrawable(outValue.resourceId)
+                            opJuice.background = getDrawable(outValue.resourceId)
+                            opMilk.background = getDrawable(outValue.resourceId)
+
+                        }
+                    }.show()
+                } else {
+                    Snackbar.make(it, "You achieved the goal", Snackbar.LENGTH_SHORT).show()
+                }
+            } else {
+                Snackbar.make(it, "Please select an option", Snackbar.LENGTH_SHORT).show()
+            }
         }
 
         btnNotific.setOnClickListener {
@@ -91,14 +110,106 @@ class MainActivity : AppCompatActivity() {
         btnStats.setOnClickListener {
             startActivity(Intent(this, StatsActivity::class.java))
         }
+
+
+        opAqua.setOnClickListener {
+            if (snackbar != null) {
+                snackbar?.dismiss()
+            }
+            selectedOption = 200
+            selectedOptionName = "Aqua"
+            opAqua.background = getDrawable(R.drawable.option_select_bg)
+            opCoffee.background = getDrawable(outValue.resourceId)
+            opTea.background = getDrawable(outValue.resourceId)
+            opSoftDrink.background = getDrawable(outValue.resourceId)
+            opJuice.background = getDrawable(outValue.resourceId)
+            opMilk.background = getDrawable(outValue.resourceId)
+
+        }
+
+        opCoffee.setOnClickListener {
+            if (snackbar != null) {
+                snackbar?.dismiss()
+            }
+            selectedOption = 150
+            selectedOptionName = "Coffee"
+            opAqua.background = getDrawable(outValue.resourceId)
+            opCoffee.background = getDrawable(R.drawable.option_select_bg)
+            opTea.background = getDrawable(outValue.resourceId)
+            opSoftDrink.background = getDrawable(outValue.resourceId)
+            opJuice.background = getDrawable(outValue.resourceId)
+            opMilk.background = getDrawable(outValue.resourceId)
+
+        }
+
+        opTea.setOnClickListener {
+            if (snackbar != null) {
+                snackbar?.dismiss()
+            }
+            selectedOption = 150
+            selectedOptionName = "Tea"
+            opAqua.background = getDrawable(outValue.resourceId)
+            opCoffee.background = getDrawable(outValue.resourceId)
+            opTea.background = getDrawable(R.drawable.option_select_bg)
+            opSoftDrink.background = getDrawable(outValue.resourceId)
+            opJuice.background = getDrawable(outValue.resourceId)
+            opMilk.background = getDrawable(outValue.resourceId)
+
+        }
+
+        opSoftDrink.setOnClickListener {
+            if (snackbar != null) {
+                snackbar?.dismiss()
+            }
+            selectedOption = 200
+            selectedOptionName = "Soft Drink"
+            opAqua.background = getDrawable(outValue.resourceId)
+            opCoffee.background = getDrawable(outValue.resourceId)
+            opTea.background = getDrawable(outValue.resourceId)
+            opSoftDrink.background = getDrawable(R.drawable.option_select_bg)
+            opJuice.background = getDrawable(outValue.resourceId)
+            opMilk.background = getDrawable(outValue.resourceId)
+
+        }
+
+        opJuice.setOnClickListener {
+            if (snackbar != null) {
+                snackbar?.dismiss()
+            }
+            selectedOption = 200
+            selectedOptionName = "Juice"
+            opAqua.background = getDrawable(outValue.resourceId)
+            opCoffee.background = getDrawable(outValue.resourceId)
+            opTea.background = getDrawable(outValue.resourceId)
+            opSoftDrink.background = getDrawable(outValue.resourceId)
+            opJuice.background = getDrawable(R.drawable.option_select_bg)
+            opMilk.background = getDrawable(outValue.resourceId)
+
+        }
+
+        opMilk.setOnClickListener {
+            if (snackbar != null) {
+                snackbar?.dismiss()
+            }
+            selectedOption = 100
+            selectedOptionName = "Milk"
+            opAqua.background = getDrawable(outValue.resourceId)
+            opCoffee.background = getDrawable(outValue.resourceId)
+            opTea.background = getDrawable(outValue.resourceId)
+            opSoftDrink.background = getDrawable(outValue.resourceId)
+            opJuice.background = getDrawable(outValue.resourceId)
+            opMilk.background = getDrawable(R.drawable.option_select_bg)
+
+        }
+
     }
 
     private fun setWaterLevel(inTook: Int, totalIntake: Int) {
-//        intakeText.text = "" + inTook + "/" + totalIntake + "\n" + getString(R.string.glass_text)
+        tvIntook.text = "$inTook"
+        tvTotalIntake.text = "/$totalIntake ml"
         val progress = ((inTook / totalIntake.toFloat()) * 100).toInt()
-//        waterLevelView.centerTitle = "" + progress + "%"
-//        waterLevelView.progressValue = progress
-        if (inTook >= totalIntake) {
+        intakeProgress.currentProgress = progress
+        if ((inTook * 100 / totalIntake) > 140) {
             Snackbar.make(main_activity_parent, "You achieved the goal", Snackbar.LENGTH_SHORT).show()
         }
     }

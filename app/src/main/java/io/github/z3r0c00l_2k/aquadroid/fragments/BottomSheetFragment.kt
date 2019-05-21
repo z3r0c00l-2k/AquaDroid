@@ -16,6 +16,7 @@ import android.widget.Toast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import io.github.z3r0c00l_2k.aquadroid.R
 import io.github.z3r0c00l_2k.aquadroid.helpers.AlarmHelper
+import io.github.z3r0c00l_2k.aquadroid.helpers.SqliteHelper
 import io.github.z3r0c00l_2k.aquadroid.utils.AppUtils
 import kotlinx.android.synthetic.main.bottom_sheet_fragment.*
 import java.math.RoundingMode
@@ -26,7 +27,6 @@ import java.util.*
 class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
 
     private lateinit var sharedPref: SharedPreferences
-    private var age: String = ""
     private var weight: String = ""
     private var workTime: String = ""
     private var wakeupTime: Long = 0
@@ -46,7 +46,6 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
 
         sharedPref = mCtx.getSharedPreferences(AppUtils.USERS_SHARED_PREF, AppUtils.PRIVATE_MODE)
 
-        etAge.editText!!.setText("" + sharedPref.getInt(AppUtils.AGE_KEY, 0))
         etWeight.editText!!.setText("" + sharedPref.getInt(AppUtils.WEIGHT_KEY, 0))
         etWorkTime.editText!!.setText("" + sharedPref.getInt(AppUtils.WORK_TIME_KEY, 0))
         etNotificationText.editText!!.setText(
@@ -161,7 +160,6 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
 
         btnUpdate.setOnClickListener {
 
-            age = etAge.editText!!.text.toString()
             weight = etWeight.editText!!.text.toString()
             workTime = etWorkTime.editText!!.text.toString()
             notificMsg = etNotificationText.editText!!.text.toString()
@@ -170,12 +168,6 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
                 TextUtils.isEmpty(notificMsg) -> Toast.makeText(
                     mCtx,
                     "Please a notification message",
-                    Toast.LENGTH_SHORT
-                ).show()
-                TextUtils.isEmpty(age) -> Toast.makeText(mCtx, "Please input your age", Toast.LENGTH_SHORT).show()
-                age.toInt() > 100 || age.toInt() < 1 -> Toast.makeText(
-                    mCtx,
-                    "Please input a valid age",
                     Toast.LENGTH_SHORT
                 ).show()
                 notificFrequency == 0 -> Toast.makeText(
@@ -204,7 +196,6 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
                 else -> {
 
                     val editor = sharedPref.edit()
-                    editor.putInt(AppUtils.AGE_KEY, age.toInt())
                     editor.putInt(AppUtils.WEIGHT_KEY, weight.toInt())
                     editor.putInt(AppUtils.WORK_TIME_KEY, workTime.toInt())
                     editor.putLong(AppUtils.WAKEUP_TIME, wakeupTime)
@@ -212,11 +203,13 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
                     editor.putString(AppUtils.NOTIFICATION_MSG_KEY, notificMsg)
                     editor.putInt(AppUtils.NOTIFICATION_FREQUENCY_KEY, notificFrequency)
 
-                    val totalIntake = AppUtils.calculateIntake(age.toInt(), weight.toInt(), workTime.toInt())
+                    val totalIntake = AppUtils.calculateIntake(weight.toInt(), workTime.toInt())
                     val df = DecimalFormat("#")
                     df.roundingMode = RoundingMode.CEILING
                     editor.putInt(AppUtils.TOTAL_INTAKE, df.format(totalIntake).toInt())
                     editor.apply()
+                    val sqliteHelper = SqliteHelper(mCtx)
+                    sqliteHelper.updateTotalIntake(AppUtils.getCurrentDate()!!, df.format(totalIntake).toInt())
                     Toast.makeText(mCtx, "Values updated successfully", Toast.LENGTH_SHORT).show()
                     val alarmHelper = AlarmHelper()
                     alarmHelper.cancelAlarm(mCtx)

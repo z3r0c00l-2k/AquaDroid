@@ -66,7 +66,7 @@
             app:cardElevation="8dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/progressBar"
+            app:layout_constraintTop_toBottomOf="@+id/intakeProgress"
             android:id="@+id/cardView"
             app:layout_constraintBottom_toBottomOf="parent" android:layout_marginBottom="140dp"
             android:layout_marginTop="60dp">
@@ -88,8 +88,8 @@
                               android:clickable="true"
                               android:background="?attr/selectableItemBackground"
                               android:orientation="vertical" app:layout_constraintStart_toStartOf="parent"
-                              app:layout_constraintTop_toTopOf="parent" android:id="@+id/linearLayout"
-                              app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
+                              app:layout_constraintTop_toTopOf="parent" android:id="@+id/opAqua"
+                              app:layout_constraintEnd_toStartOf="@+id/opCoffee"
                               app:layout_constraintBottom_toBottomOf="parent">
                     <ImageView
                             android:layout_width="wrap_content"
@@ -99,13 +99,13 @@
                             android:textColor="@color/colorBalck"
                             android:layout_marginTop="8dp"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="100 ml"/>
+                            android:text="200 ml"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                               android:text="Aqua"/>
                 </LinearLayout>
-                <View style="@style/DividerVertical" app:layout_constraintStart_toEndOf="@id/linearLayout"
+                <View style="@style/DividerVertical" app:layout_constraintStart_toEndOf="@id/opAqua"
                       app:layout_constraintTop_toBottomOf="parent"/>
-                <View style="@style/DividerVertical" app:layout_constraintStart_toEndOf="@id/linearLayout2"
+                <View style="@style/DividerVertical" app:layout_constraintStart_toEndOf="@id/opCoffee"
                       app:layout_constraintTop_toBottomOf="parent"/>
                 <LinearLayout android:layout_width="0dp" android:gravity="center"
                               android:layout_height="0dp"
@@ -113,8 +113,8 @@
                               android:background="?attr/selectableItemBackground"
                               android:orientation="vertical"
                               app:layout_constraintTop_toTopOf="parent"
-                              app:layout_constraintStart_toEndOf="@+id/linearLayout"
-                              android:id="@+id/linearLayout2" app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
+                              app:layout_constraintStart_toEndOf="@+id/opAqua"
+                              android:id="@+id/opCoffee" app:layout_constraintEnd_toStartOf="@+id/opTea"
                               app:layout_constraintBottom_toBottomOf="parent">
                     <ImageView
                             android:layout_width="wrap_content"
@@ -124,7 +124,7 @@
                             android:textColor="@color/colorBalck"
                             android:layout_marginTop="8dp"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"
-                            android:text="50 ml"/>
+                            android:text="150 ml"/>
                     <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                               android:text="Coffee"/>
                 </LinearLayout>
@@ -134,8 +134,8 @@
                               android:clickable="true"
                               android:background="?attr/selectableItemBackground"
                               app:layout_constraintTop_toTopOf="parent"
-                              app:layout_constraintStart_toEndOf="@+id/linearLayout2"
-                              app:layout_constraintEnd_toEndOf="parent" android:id="@+id/linearLayout3"
+                              app:layout_constraintStart_toEndOf="@+id/opCoffee"
+                              app:layout_constraintEnd_toEndOf="parent" android:id="@+id/opTea"
                               app:layout_constraintBottom_toBottomOf="parent">
                     <ImageView
                             android:layout_width="wrap_content"
@@ -158,17 +158,17 @@
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
                     android:id="@+id/constraintLayout3"
                     app:layout_constraintBottom_toBottomOf="parent">
-                <View style="@style/DividerVertical" app:layout_constraintStart_toEndOf="@id/linearLayout4"
+                <View style="@style/DividerVertical" app:layout_constraintStart_toEndOf="@id/opSoftDrink"
                       app:layout_constraintTop_toBottomOf="parent"/>
-                <View style="@style/DividerVertical" app:layout_constraintStart_toEndOf="@id/linearLayout5"
+                <View style="@style/DividerVertical" app:layout_constraintStart_toEndOf="@id/opJuice"
                       app:layout_constraintTop_toBottomOf="parent"/>
                 <LinearLayout android:layout_width="0dp" android:gravity="center"
                               android:layout_height="0dp"
                               android:clickable="true"
                               android:background="?attr/selectableItemBackground"
                               android:orientation="vertical" app:layout_constraintStart_toStartOf="parent"
-                              app:layout_constraintTop_toTopOf="parent" android:id="@+id/linearLayout4"
-                              app:layout_constraintEnd_toStartOf="@+id/linearLayout5"
+                              app:layout_constraintTop_toTopOf="parent" android:id="@+id/opSoftDrink"
+                              app:layout_constraintEnd_toStartOf="@+id/opJuice"
                               app:layout_constraintBottom_toBottomOf="parent">
                     <ImageView
                             android:layout_width="wrap_content"
@@ -188,8 +188,8 @@
                               android:clickable="true"
                               android:background="?attr/selectableItemBackground"
                               app:layout_constraintTop_toTopOf="parent"
-                              app:layout_constraintStart_toEndOf="@+id/linearLayout4"
-                              android:id="@+id/linearLayout5" app:layout_constraintEnd_toStartOf="@+id/linearLayout6"
+                              app:layout_constraintStart_toEndOf="@+id/opSoftDrink"
+                              android:id="@+id/opJuice" app:layout_constraintEnd_toStartOf="@+id/opMilk"
                               app:layout_constraintBottom_toBottomOf="parent">
                     <ImageView
                             android:layout_width="wrap_content"
@@ -209,8 +209,8 @@
                               android:background="?attr/selectableItemBackground"
                               android:orientation="vertical"
                               app:layout_constraintTop_toTopOf="parent"
-                              app:layout_constraintStart_toEndOf="@+id/linearLayout5"
-                              app:layout_constraintEnd_toEndOf="parent" android:id="@+id/linearLayout6"
+                              app:layout_constraintStart_toEndOf="@+id/opJuice"
+                              app:layout_constraintEnd_toEndOf="parent" android:id="@+id/opMilk"
                               app:layout_constraintBottom_toBottomOf="parent">
                     <ImageView
                             android:layout_width="wrap_content"
@@ -242,9 +242,9 @@
             app:textColor="@color/colorWhite"
             app:progressBackgroundColor="#43F69F"
             app:progressColor="@color/colorWhite"
-            android:id="@+id/progressBar" app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/intakeProgress" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="24dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="24dp" app:layout_constraintTop_toBottomOf="@+id/textView4"
+            android:layout_marginStart="24dp" app:layout_constraintTop_toBottomOf="@+id/tvIntook"
             android:layout_marginTop="16dp"/>
     <TextView
             android:text="2000"
@@ -253,7 +253,7 @@
             android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView4" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/tvIntook" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="24dp" android:layout_marginTop="16dp"
             app:layout_constraintTop_toBottomOf="@+id/textView5"/>
     <TextView
@@ -262,8 +262,8 @@
             android:textSize="25sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView6" app:layout_constraintStart_toEndOf="@+id/textView4"
+            android:id="@+id/tvTotalIntake" app:layout_constraintStart_toEndOf="@+id/tvIntook"
             android:layout_marginStart="4dp" android:layout_marginBottom="4dp"
-            app:layout_constraintBottom_toBottomOf="@+id/textView4"/>
+            app:layout_constraintBottom_toBottomOf="@+id/tvIntook"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

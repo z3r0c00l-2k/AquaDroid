@@ -15,8 +15,6 @@ import io.github.z3r0c00l_2k.aquadroid.helpers.SqliteHelper
 import io.github.z3r0c00l_2k.aquadroid.utils.AppUtils
 import io.github.z3r0c00l_2k.aquadroid.utils.ChartXValueFormatter
 import kotlinx.android.synthetic.main.activity_stats.*
-import java.math.RoundingMode
-import java.text.DecimalFormat
 
 
 class StatsActivity : AppCompatActivity() {
@@ -36,11 +34,6 @@ class StatsActivity : AppCompatActivity() {
         btnBack.setOnClickListener {
             finish()
         }
-
-//        greetings.text = getString(R.string.hello_text) + sharedPref.getString(
-//            AppUtils.NAME_KEY,
-//            "User"
-//        ) + getString(R.string.water_habit_text)
 
         val entries = ArrayList<Entry>()
         val dateArray = ArrayList<String>()
@@ -77,8 +70,8 @@ class StatsActivity : AppCompatActivity() {
             chart.setPinchZoom(true)
             chart.isScaleXEnabled = true
             chart.isScaleYEnabled = false
-            chart.axisLeft.textColor = Color.WHITE
-            chart.xAxis.textColor = Color.WHITE
+            chart.axisLeft.textColor = Color.BLACK
+            chart.xAxis.textColor = Color.BLACK
             chart.axisLeft.setDrawAxisLine(false)
             chart.xAxis.setDrawAxisLine(false)
             chart.setDrawMarkers(false)
@@ -90,8 +83,10 @@ class StatsActivity : AppCompatActivity() {
 
             val dataSet = LineDataSet(entries, "Label")
             dataSet.setDrawCircles(false)
-            dataSet.lineWidth = 0f
+            dataSet.lineWidth = 2.5f
+            dataSet.color = resources.getColor(R.color.colorSecondaryDark)
             dataSet.setDrawFilled(true)
+            dataSet.fillDrawable = getDrawable(R.drawable.graph_fill_gradiant)
             dataSet.setDrawValues(false)
             dataSet.mode = LineDataSet.Mode.CUBIC_BEZIER
 
@@ -99,12 +94,31 @@ class StatsActivity : AppCompatActivity() {
             chart.xAxis.valueFormatter = (ChartXValueFormatter(dateArray))
             chart.data = lineData
             chart.invalidate()
-            val df = DecimalFormat("#.##")
-            df.roundingMode = RoundingMode.CEILING
-//            totalIntakePercentage.text = "" + df.format((totalPercentage / cursor.count)) + " %"
-//            avgGlassPD.text = getString(R.string.average_glasses_day_text) + df.format((totalGlasses / cursor.count))
+
+            val remaining = sharedPref.getInt(
+                AppUtils.TOTAL_INTAKE,
+                0
+            ) - sqliteHelper.getIntook(AppUtils.getCurrentDate()!!)
+
+            if (remaining > 0) {
+                remainingIntake.text = "$remaining ml"
+            } else {
+                remainingIntake.text = "0 ml"
+            }
+
+            targetIntake.text = "${sharedPref.getInt(
+                AppUtils.TOTAL_INTAKE,
+                0
+            )
+            } ml"
+
+            val percentage = sqliteHelper.getIntook(AppUtils.getCurrentDate()!!) * 100 / sharedPref.getInt(
+                AppUtils.TOTAL_INTAKE,
+                0
+            )
+            waterLevelView.centerTitle = "$percentage%"
+            waterLevelView.progressValue = percentage
 
         }
-
     }
 }

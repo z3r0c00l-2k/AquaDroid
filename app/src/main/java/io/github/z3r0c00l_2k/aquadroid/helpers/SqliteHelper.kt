@@ -61,11 +61,11 @@ class SqliteHelper(val context: Context) : SQLiteOpenHelper(
         return 0
     }
 
-    fun addIntook(date: String): Int {
+    fun addIntook(date: String, selectedOption: Int): Int {
         val intook = getIntook(date)
         val db = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put(KEY_INTOOK, intook + 1)
+        contentValues.put(KEY_INTOOK, intook + selectedOption)
 
         val response = db.update(TABLE_STATS, contentValues, "$KEY_DATE = ?", arrayOf(date))
         db.close()
@@ -88,6 +88,17 @@ class SqliteHelper(val context: Context) : SQLiteOpenHelper(
         val db = this.readableDatabase
         return db.rawQuery(selectQuery, null)
 
+    }
+
+    fun updateTotalIntake(date: String, totalintake: Int): Int {
+        val intook = getIntook(date)
+        val db = this.writableDatabase
+        val contentValues = ContentValues()
+        contentValues.put(KEY_TOTAL_INTAKE, totalintake)
+
+        val response = db.update(TABLE_STATS, contentValues, "$KEY_DATE = ?", arrayOf(date))
+        db.close()
+        return response
     }
 
 }

@@ -49,24 +49,7 @@
                     android:background="@null"
                     android:hint="@string/enter_your_name_hint" android:inputType="textPersonName"/>
         </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="0dp"
-                android:theme="@style/TextInputLayoutAppearance"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
-                android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/etName"
-                android:id="@+id/etAge">
 
-            <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:paddingStart="10dp"
-                    android:paddingBottom="10dp"
-                    android:background="@null"
-                    android:maxLength="2"
-                    android:hint="@string/age_hint" android:inputType="numberSigned"/>
-        </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
                 android:theme="@style/TextInputLayoutAppearance"
@@ -152,7 +135,7 @@
                 app:rrbg_selectorColor="@color/colorSkyBlue"
                 app:rrbg_selectorSize="6dp"
                 android:layout_marginTop="24dp"
-                app:layout_constraintTop_toBottomOf="@+id/etAge"
+                app:layout_constraintTop_toBottomOf="@+id/etName"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
