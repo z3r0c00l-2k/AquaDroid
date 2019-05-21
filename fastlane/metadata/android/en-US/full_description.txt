@@ -1,0 +1,11 @@
+AquaDroid simple android app to remind you to drink water and track your water intake habit
+
+This app will calculate total water intake according to your weight, age and your daily workout time.
+
+You can set reminder to drink water. AquaDroid will show your water intake habbit.
+
+
+Required Android Permissions:
+
+    * RECEIVE_BOOT_COMPLETED : to register alarm for notification
+    * VIBRATE : to controll vibration
