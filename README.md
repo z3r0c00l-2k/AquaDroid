@@ -4,7 +4,7 @@ AquaDroid simple android app to remind you to drink water and track your water i
 
 ## Installation
 
-You can download the release apk from releases or build it from the source.
+You can download the release apk from [releases](https://github.com/z3r0c00l-2k/AquaDroid/releases) or build it from the source.
 
 
 ## Contributing
