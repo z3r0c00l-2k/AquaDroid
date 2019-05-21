@@ -65,7 +65,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/textView4" android:layout_marginBottom="8dp"/>
     <TextView
-            android:text="After drinking a glass of water click + button to record it"
+            android:text="@string/record_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textAlignment="center"
@@ -86,7 +86,7 @@
             android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent"/>
     <TextView
-            android:text="33 / 70 Glass"
+            android:text="@string/glass_text"
             android:layout_width="0dp"
             android:textAlignment="center"
             android:textColor="@color/colorWhite"

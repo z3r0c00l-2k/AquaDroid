@@ -61,7 +61,8 @@ class MainActivity : AppCompatActivity() {
 
         fabAdd.setOnClickListener {
             if (inTook < totalIntake) {
-                Snackbar.make(it, "Did you drank a glass of water..?", Snackbar.LENGTH_SHORT).setAction("  Yes  ") {
+                Snackbar.make(it, "Did you drank a glass of water..?", Snackbar.LENGTH_SHORT)
+                    .setAction("\t\t\tYes\t\t\t") {
                     if (sqliteHelper.addIntook(dateNow) > 0) {
                         inTook++
                         setWaterLevel(inTook, totalIntake)
@@ -93,7 +94,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setWaterLevel(inTook: Int, totalIntake: Int) {
-        intakeText.text = "" + inTook + "/" + totalIntake + "\nGlasses"
+        intakeText.text = "" + inTook + "/" + totalIntake + "\n" + getString(R.string.glass_text)
         val progress = ((inTook / totalIntake.toFloat()) * 100).toInt()
         waterLevelView.centerTitle = "" + progress + "%"
         waterLevelView.progressValue = progress

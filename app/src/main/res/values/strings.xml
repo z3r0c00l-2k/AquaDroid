@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">AquaDroid</string>
-    <string name="pref_notification_message_value">Hey... Lets drink some water....</string>
+    <string name="pref_notification_message_value">Hey… Lets drink some water....</string>
+    <string name="add_info_text">Please provide some information to customize the experience for you…!!</string>
+    <string name="str_continue">Continue</string>
+    <string name="enter_your_name_hint">Enter your name</string>
+    <string name="age_hint">Enter your age</string>
+    <string name="weight_hint">Enter your weight in Kg</string>
+    <string name="workout_hint">You daily work out time in min/day</string>
+    <string name="wakeup_hint">Your wake up time</string>
+    <string name="sleeping_hint">Your Sleep time</string>
+    <string name="record_text">After drinking a glass of water click + button to record it</string>
+    <string name="glass_text">Glass</string>
+    <string name="tagline_text">Lets keep you hydrated...</string>
+    <string name="total_intake_text">Total Intake</string>
+    <string name="hello_text">Hello,\t</string>
+    <string name="average_glasses_day_text">Average Glasses / Day :\t</string>
+    <string name="water_habit_text">. Your water intake habit</string>
 </resources>

@@ -37,7 +37,10 @@ class StatsActivity : AppCompatActivity() {
             finish()
         }
 
-        greetings.text = "Hello, " + sharedPref.getString(AppUtils.NAME_KEY, "User") + ". Your water intake habit"
+        greetings.text = getString(R.string.hello_text) + sharedPref.getString(
+            AppUtils.NAME_KEY,
+            "User"
+        ) + getString(R.string.water_habit_text)
 
         val entries = ArrayList<Entry>()
         val dateArray = ArrayList<String>()
@@ -99,7 +102,7 @@ class StatsActivity : AppCompatActivity() {
             val df = DecimalFormat("#.##")
             df.roundingMode = RoundingMode.CEILING
             totalIntakePercentage.text = "" + df.format((totalPercentage / cursor.count)) + " %"
-            avgGlassPD.text = "Average Glasses / Day : " + df.format((totalGlasses / cursor.count))
+            avgGlassPD.text = getString(R.string.average_glasses_day_text) + df.format((totalGlasses / cursor.count))
 
         }
 

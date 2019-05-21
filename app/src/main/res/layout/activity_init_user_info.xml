@@ -10,7 +10,7 @@
         tools:context=".InitUserInfoActivity">
     <Button
 
-            android:text="Continue"
+            android:text="@string/str_continue"
             style="@android:style/Widget.Material.Button.Borderless"
             android:drawableEnd="@drawable/ic_arrow_circle_right_solid"
             android:layout_width="140dp"
@@ -19,7 +19,7 @@
             app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"/>
     <TextView
-            android:text="Please provide some infomation to constomize the experience for you...!!"
+            android:text="@string/add_info_text"
             android:layout_width="0dp"
             android:textAlignment="center"
             android:textSize="20sp"
@@ -47,7 +47,7 @@
                     android:paddingStart="10dp"
                     android:paddingBottom="10dp"
                     android:background="@null"
-                    android:hint="Enter your name" android:inputType="textPersonName"/>
+                    android:hint="@string/enter_your_name_hint" android:inputType="textPersonName"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
@@ -65,7 +65,7 @@
                     android:paddingBottom="10dp"
                     android:background="@null"
                     android:maxLength="2"
-                    android:hint="Enter your age" android:inputType="numberSigned"/>
+                    android:hint="@string/age_hint" android:inputType="numberSigned"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
@@ -83,7 +83,7 @@
                     android:paddingBottom="10dp"
                     android:background="@null"
                     android:maxLength="3"
-                    android:hint="Enter your weight in Kg" android:inputType="numberSigned"/>
+                    android:hint="@string/weight_hint" android:inputType="numberSigned"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
@@ -101,7 +101,7 @@
                     android:paddingBottom="10dp"
                     android:background="@null"
                     android:maxLength="3"
-                    android:hint=" You daily work time in min/day" android:inputType="numberSigned"/>
+                    android:hint="@string/workout_hint" android:inputType="numberSigned"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
@@ -120,7 +120,7 @@
                     android:clickable="true"
                     android:focusable="false"
                     android:background="@null"
-                    android:hint="Your wake up time" android:inputType="numberSigned"/>
+                    android:hint="@string/wakeup_hint" android:inputType="numberSigned"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="0dp"
@@ -139,7 +139,7 @@
                     android:clickable="true"
                     android:focusable="false"
                     android:background="@null"
-                    android:hint="Your Sleep time" android:inputType="numberSigned"/>
+                    android:hint="@string/sleeping_hint" android:inputType="numberSigned"/>
         </com.google.android.material.textfield.TextInputLayout>
         <co.ceryle.radiorealbutton.RadioRealButtonGroup
                 android:layout_width="match_parent"
