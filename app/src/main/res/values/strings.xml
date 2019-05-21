@@ -9,11 +9,5 @@
     <string name="workout_hint">You daily work out time in min/day</string>
     <string name="wakeup_hint">Your wake up time</string>
     <string name="sleeping_hint">Your Sleep time</string>
-    <string name="record_text">After drinking a glass of water click + button to record it</string>
-    <string name="glass_text">Glass</string>
     <string name="tagline_text">Lets keep you hydrated...</string>
-    <string name="total_intake_text">Total Intake</string>
-    <string name="hello_text">Hello,\t</string>
-    <string name="average_glasses_day_text">Average Glasses / Day :\t</string>
-    <string name="water_habit_text">. Your water intake habit</string>
 </resources>

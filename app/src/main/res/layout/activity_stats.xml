@@ -5,16 +5,17 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/main_bg_gradiant"
+        android:background="@drawable/ic_app_bg"
         tools:context=".StatsActivity">
     <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/chart"
             android:layout_width="0dp"
-            android:layout_height="350dp"
+            android:layout_height="220dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp" android:layout_marginTop="24dp"
-            app:layout_constraintTop_toBottomOf="@+id/greetings"/>
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintHorizontal_bias="0.0" android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
     <ImageButton
             android:background="?attr/selectableItemBackground"
             android:layout_width="40dp"
@@ -22,52 +23,107 @@
             android:id="@+id/btnBack" app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="16dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"/>
-    <TextView
-            android:text="0 %"
-            android:layout_width="wrap_content"
-            android:textSize="40sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorWhite"
-            android:layout_height="wrap_content"
-            android:id="@+id/totalIntakePercentage" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/chart"
-            android:layout_marginBottom="8dp" app:layout_constraintBottom_toTopOf="@+id/textView9"/>
-    <TextView
-            android:text="@string/average_glasses_day_text"
-            android:layout_width="wrap_content"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorWhite"
-            android:layout_height="wrap_content"
-            android:id="@+id/avgGlassPD" app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView9"
-            android:layout_marginBottom="18dp" app:layout_constraintBottom_toBottomOf="parent"/>
-    <TextView
-            android:text="@string/total_intake_text"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorWhite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView9" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/totalIntakePercentage" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/avgGlassPD"/>
-    <TextView
-            android:text="@string/hello_text"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@color/colorWhite"
+    <androidx.cardview.widget.CardView
             android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="24dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="24dp" android:id="@+id/cardView2" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView14">
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <Spinner
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content" android:id="@+id/spinner"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                    app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="8dp"/>
+            <me.itangqi.waveloadingview.WaveLoadingView
+                    android:id="@+id/waterLevelView"
+                    android:layout_width="250dp"
+                    android:layout_height="0dp"
+                    app:wlv_borderColor="@color/colorSecondaryDark"
+                    app:wlv_borderWidth="8dp"
+                    app:wlv_progressValue="70"
+                    app:wlv_shapeType="circle"
+                    app:wlv_round_rectangle="true"
+                    app:wlv_triangle_direction="north"
+                    app:wlv_titleCenterStrokeColor="@android:color/holo_blue_dark"
+                    app:wlv_titleCenterStrokeWidth="3dp"
+                    app:wlv_titleCenter="40%"
+                    app:wlv_titleCenterColor="@color/colorWhite"
+                    app:wlv_titleCenterSize="50sp"
+                    app:wlv_waveAmplitude="60"
+                    app:wlv_waveColor="@color/colorSecondaryDark"
+                    app:layout_constraintTop_toBottomOf="@+id/spinner" android:layout_marginStart="8dp"
+                    app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="24dp"
+                    android:layout_marginBottom="24dp" app:layout_constraintBottom_toTopOf="@+id/linearLayout7"/>
+            <LinearLayout android:layout_width="wrap_content"
+                          android:orientation="vertical"
+                          android:gravity="center"
+                          android:layout_height="wrap_content"
+                          app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
+                          android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                          android:id="@+id/linearLayout7" app:layout_constraintEnd_toStartOf="@+id/linearLayout8"
+                          android:layout_marginEnd="8dp">
+                <TextView
+                        android:text="Remaining"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView10"/>
+                <TextView
+                        android:text="1100 ml"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorBalck"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView11"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                          android:orientation="vertical"
+                          android:gravity="center"
+                          android:layout_height="wrap_content"
+                          android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+                          app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                          app:layout_constraintStart_toEndOf="@+id/linearLayout7" android:layout_marginStart="8dp"
+                          android:id="@+id/linearLayout8">
+                <TextView
+                        android:text="Target"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView12"/>
+                <TextView
+                        android:text="3100 ml"
+                        android:textSize="20sp"
+                        android:textColor="@color/colorBalck"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/textView13"/>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+    <TextView
+            android:text="Intake Report"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/textView8"
+            app:layout_constraintStart_toEndOf="@+id/btnBack"
+            android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"/>
+    <TextView
+            android:text="Summury"
+            android:textSize="18sp"
+            android:textColor="@color/colorBalck"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/greetings"
-            android:layout_marginEnd="24dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toBottomOf="@+id/btnBack"
-            android:layout_marginStart="24dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="16dp"/>
+            android:id="@+id/textView14" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="24dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/chart"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

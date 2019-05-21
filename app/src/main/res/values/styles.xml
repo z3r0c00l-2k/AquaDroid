@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorSkyBlue</item>
+        <item name="colorAccent">@color/colorSecondaryDark</item>
         <item name="android:fontFamily">@font/kanit</item>
     </style>
 
@@ -13,7 +13,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorSecondary</item>
         <item name="colorPrimaryDark">@color/colorSecondary</item>
-        <item name="colorAccent">@color/colorSkyBlue</item>
+        <item name="colorAccent">@color/colorSecondaryDark</item>
         <item name="android:fontFamily">@font/kanit</item>
     </style>
 
@@ -32,6 +32,17 @@
         <item name="hintTextAppearance">@style/HintText</item>
         <item name="errorTextAppearance">@style/ErrorText</item>
         <item name="android:background">@drawable/textinput_bg</item>
+    </style>
+
+    <style name="DividerHorizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/deviderColor</item>
+    </style>
+    <style name="DividerVertical">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/deviderColor</item>
     </style>
 
 </resources>

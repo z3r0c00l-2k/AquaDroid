@@ -94,10 +94,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setWaterLevel(inTook: Int, totalIntake: Int) {
-        intakeText.text = "" + inTook + "/" + totalIntake + "\n" + getString(R.string.glass_text)
+//        intakeText.text = "" + inTook + "/" + totalIntake + "\n" + getString(R.string.glass_text)
         val progress = ((inTook / totalIntake.toFloat()) * 100).toInt()
-        waterLevelView.centerTitle = "" + progress + "%"
-        waterLevelView.progressValue = progress
+//        waterLevelView.centerTitle = "" + progress + "%"
+//        waterLevelView.progressValue = progress
         if (inTook >= totalIntake) {
             Snackbar.make(main_activity_parent, "You achieved the goal", Snackbar.LENGTH_SHORT).show()
         }

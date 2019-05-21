@@ -25,7 +25,7 @@ class SplashActivity : AppCompatActivity() {
         sharedPref = getSharedPreferences(AppUtils.USERS_SHARED_PREF, AppUtils.PRIVATE_MODE)
 
         Thread {
-            Thread.sleep(1500)
+            Thread.sleep(1000)
             val name = sharedPref.getString(AppUtils.NAME_KEY, null)
             if (name == null) {
                 startActivity(Intent(this, InitUserInfoActivity::class.java))

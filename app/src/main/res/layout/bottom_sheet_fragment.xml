@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:background="@color/colorSkyBlue"
+        android:background="@color/colorSecondaryDark"
         android:id="@+id/bottomSheetParent"
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
@@ -171,7 +171,7 @@
             app:rrbg_dividerColor="@color/colorBalck"
             app:rrbg_dividerSize="1dp"
             app:rrbg_radius="6dp"
-            app:rrbg_selectorColor="@color/colorSkyBlue"
+            app:rrbg_selectorColor="@color/colorSecondaryLigher"
             app:rrbg_selectorSize="6dp"
             android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/etRingtone"
@@ -191,7 +191,7 @@
                 app:rrb_ripple="true"
                 app:rrb_rippleColor="@color/colorBalck"
                 app:rrb_text="30 Minutes"
-                app:rrb_textColor="@color/grey"/>
+                app:rrb_textColor="@color/colorBalck"/>
 
         <co.ceryle.radiorealbutton.RadioRealButton
                 android:layout_width="wrap_content"
@@ -204,7 +204,7 @@
                 app:rrb_ripple="true"
                 app:rrb_rippleColor="@color/colorBalck"
                 app:rrb_text="45 Minutes"
-                app:rrb_textColor="@color/grey"/>
+                app:rrb_textColor="@color/colorBalck"/>
         <co.ceryle.radiorealbutton.RadioRealButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -216,6 +216,6 @@
                 app:rrb_ripple="true"
                 app:rrb_rippleColor="@color/colorBalck"
                 app:rrb_text="60 Minutes"
-                app:rrb_textColor="@color/grey"/>
+                app:rrb_textColor="@color/colorBalck"/>
     </co.ceryle.radiorealbutton.RadioRealButtonGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
