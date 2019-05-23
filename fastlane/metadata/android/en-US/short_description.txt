@@ -1,1 +1,1 @@
-AquaDroid simple android app to remind you to drink water and track your water intake habit 
+Reminds you to drink water and tracks your water intake habit
