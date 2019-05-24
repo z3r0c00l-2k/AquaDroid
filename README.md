@@ -1,6 +1,14 @@
 # AquaDroid
 
+<img src="/fastlane/metadata/android/en-US/images/featureGraphic.png" width="90px">
+
 AquaDroid simple android app to remind you to drink water and track your water intake habit
+
+## ScreenShots
+
+<img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/1-home.png" width="250px"> <img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/2-Edit.png" width="250px"> <img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/3-Stats.png" width="250px"> 
+
+
 
 ## Installation
 
