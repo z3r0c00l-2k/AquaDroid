@@ -6,7 +6,9 @@ AquaDroid simple android app to remind you to drink water and track your water i
 
 ## ScreenShots
 
-<img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/1-home.png" width="250px"> <img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/2-Edit.png" width="250px"> <img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/3-Stats.png" width="250px"> 
+<img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/1-Intro.png" width="250px"> <img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/2-Edit.png" width="250px"> 
+
+<img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/3-home.png" width="250px"> <img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/4-Stats.png" width="250px"> 
 
 
 
@@ -23,3 +25,7 @@ Please make sure to update tests as appropriat
 ## License
 [GPL-3.0](https://github.com/z3r0c00l-2k/AquaDroid/blob/master/LICENSE)
 
+## Credits
+All icons was downloaded from [flaticon](www.flaticon.com)
+
+UI design was inspired from [Dribble](dribbble.com)
