@@ -127,7 +127,7 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
                     etWakeUpTime.editText!!.setText(
                         String.format("%02d:%02d", selectedHour, selectedMinute)
                     )
-                }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true
+                }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false
             )
             mTimePicker.setTitle("Select Wakeup Time")
             mTimePicker.show()
@@ -152,7 +152,7 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
                     etSleepTime.editText!!.setText(
                         String.format("%02d:%02d", selectedHour, selectedMinute)
                     )
-                }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true
+                }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false
             )
             mTimePicker.setTitle("Select Sleeping Time")
             mTimePicker.show()
