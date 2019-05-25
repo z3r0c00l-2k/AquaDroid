@@ -5,6 +5,8 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.TypedValue
 import androidx.appcompat.app.AppCompatActivity
+import com.daimajia.androidanimations.library.Techniques
+import com.daimajia.androidanimations.library.YoYo
 import com.google.android.material.snackbar.Snackbar
 import io.github.z3r0c00l_2k.aquadroid.fragments.BottomSheetFragment
 import io.github.z3r0c00l_2k.aquadroid.helpers.AlarmHelper
@@ -68,27 +70,28 @@ class MainActivity : AppCompatActivity() {
         fabAdd.setOnClickListener {
             if (selectedOption != null && selectedOptionName != null) {
                 if ((inTook * 100 / totalIntake) <= 140) {
-                    snackbar = Snackbar.make(it, "Did you drank $selectedOptionName..?", Snackbar.LENGTH_SHORT)
-                    snackbar!!.setAction("\t\t\tYes\t\t\t") {
-                        if (sqliteHelper.addIntook(dateNow, selectedOption!!) > 0) {
-                            inTook += selectedOption!!
-                            setWaterLevel(inTook, totalIntake)
+                    if (sqliteHelper.addIntook(dateNow, selectedOption!!) > 0) {
+                        inTook += selectedOption!!
+                        setWaterLevel(inTook, totalIntake)
 
-                            selectedOption = null
-                            selectedOptionName = null
-                            opAqua.background = getDrawable(outValue.resourceId)
-                            opCoffee.background = getDrawable(outValue.resourceId)
-                            opTea.background = getDrawable(outValue.resourceId)
-                            opSoftDrink.background = getDrawable(outValue.resourceId)
-                            opJuice.background = getDrawable(outValue.resourceId)
-                            opMilk.background = getDrawable(outValue.resourceId)
+                        Snackbar.make(it, "Your water intake was saved...!!", Snackbar.LENGTH_SHORT).show()
 
-                        }
-                    }.show()
+                    }
                 } else {
-                    Snackbar.make(it, "You achieved the goal", Snackbar.LENGTH_SHORT).show()
+                    Snackbar.make(it, "You already achieved the goal", Snackbar.LENGTH_SHORT).show()
                 }
+                selectedOption = null
+                selectedOptionName = null
+                opAqua.background = getDrawable(outValue.resourceId)
+                opCoffee.background = getDrawable(outValue.resourceId)
+                opTea.background = getDrawable(outValue.resourceId)
+                opSoftDrink.background = getDrawable(outValue.resourceId)
+                opJuice.background = getDrawable(outValue.resourceId)
+                opMilk.background = getDrawable(outValue.resourceId)
             } else {
+                YoYo.with(Techniques.Shake)
+                    .duration(700)
+                    .playOn(cardView)
                 Snackbar.make(it, "Please select an option", Snackbar.LENGTH_SHORT).show()
             }
         }
@@ -205,9 +208,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setWaterLevel(inTook: Int, totalIntake: Int) {
+
+        YoYo.with(Techniques.SlideInDown)
+            .duration(500)
+            .playOn(tvIntook)
         tvIntook.text = "$inTook"
         tvTotalIntake.text = "/$totalIntake ml"
         val progress = ((inTook / totalIntake.toFloat()) * 100).toInt()
+        YoYo.with(Techniques.Pulse)
+            .duration(500)
+            .playOn(intakeProgress)
         intakeProgress.currentProgress = progress
         if ((inTook * 100 / totalIntake) > 140) {
             Snackbar.make(main_activity_parent, "You achieved the goal", Snackbar.LENGTH_SHORT).show()
