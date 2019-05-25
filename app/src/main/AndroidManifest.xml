@@ -14,21 +14,22 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".StatsActivity"
-                  android:theme="@style/MainTheme">
+        <activity android:name=".WalkThroughActivity">
+        </activity>
+        <activity
+                android:name=".StatsActivity"
+                android:theme="@style/MainTheme">
         </activity>
         <activity android:name=".InitUserInfoActivity">
         </activity>
-        <activity android:name=".SplashActivity">
+        <activity
+                android:name=".MainActivity"
+                android:theme="@style/MainTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
-        <activity
-                android:name=".MainActivity"
-                android:theme="@style/MainTheme">
         </activity>
 
         <receiver android:name=".recievers.NotifierReceiver"/>

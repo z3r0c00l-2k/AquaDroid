@@ -34,16 +34,26 @@ class MainActivity : AppCompatActivity() {
 
         sharedPref = getSharedPreferences(AppUtils.USERS_SHARED_PREF, AppUtils.PRIVATE_MODE)
         sqliteHelper = SqliteHelper(this)
-        dateNow = AppUtils.getCurrentDate()!!
-        val outValue = TypedValue()
-        applicationContext.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
 
         totalIntake = sharedPref.getInt(AppUtils.TOTAL_INTAKE, 0)
 
-        if (totalIntake <= 0) {
+        if (sharedPref.getBoolean(AppUtils.FIRST_RUN_KEY, true)) {
+            startActivity(Intent(this, WalkThroughActivity::class.java))
+            finish()
+        } else if (totalIntake <= 0) {
             startActivity(Intent(this, InitUserInfoActivity::class.java))
             finish()
         }
+
+        dateNow = AppUtils.getCurrentDate()!!
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        val outValue = TypedValue()
+        applicationContext.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
 
         notificStatus = sharedPref.getBoolean(AppUtils.NOTIFICATION_STATUS_KEY, true)
         val alarm = AlarmHelper()
@@ -206,6 +216,7 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
 
     private fun setWaterLevel(inTook: Int, totalIntake: Int) {
 

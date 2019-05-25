@@ -31,5 +31,6 @@ class AppUtils {
         val SLEEPING_TIME_KEY = "sleepingtime"
         val WAKEUP_TIME = "wakeuptime"
         val NOTIFICATION_TONE_URI_KEY = "notificationtone"
+        val FIRST_RUN_KEY = "firstrun"
     }
 }

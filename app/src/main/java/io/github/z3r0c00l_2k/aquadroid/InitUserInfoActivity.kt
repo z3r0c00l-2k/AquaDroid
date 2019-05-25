@@ -135,6 +135,7 @@ class InitUserInfoActivity : AppCompatActivity() {
                     editor.putInt(AppUtils.WORK_TIME_KEY, workTime.toInt())
                     editor.putLong(AppUtils.WAKEUP_TIME, wakeupTime)
                     editor.putLong(AppUtils.SLEEPING_TIME_KEY, sleepingTime)
+                    editor.putBoolean(AppUtils.FIRST_RUN_KEY, false)
 
                     val totalIntake = AppUtils.calculateIntake(weight.toInt(), workTime.toInt())
                     val df = DecimalFormat("#")

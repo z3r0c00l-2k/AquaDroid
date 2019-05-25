@@ -43,4 +43,5 @@ dependencies {
     implementation 'com.params.progressview:step-progress:1.0.2'
     implementation 'com.daimajia.easing:library:2.0@aar'
     implementation 'com.daimajia.androidanimations:library:2.3@aar'
+    implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:2.1.2'
 }
