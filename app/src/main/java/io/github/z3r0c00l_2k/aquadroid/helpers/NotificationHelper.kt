@@ -95,8 +95,10 @@ class NotificationHelper(val ctx: Context) {
 
     private fun shallNotify(): Boolean {
         val prefs = ctx.getSharedPreferences(AppUtils.USERS_SHARED_PREF, AppUtils.PRIVATE_MODE)
+        val sqliteHelper = SqliteHelper(ctx)
 
-        val notificationsNewMessage = prefs.getBoolean("notifications_new_message", true)
+        val percent = sqliteHelper.getIntook(AppUtils.getCurrentDate()!!) * 100 / prefs.getInt(AppUtils.TOTAL_INTAKE, 0)
+
         var doNotDisturbOff = true
 
         val startTimestamp = prefs.getLong(AppUtils.WAKEUP_TIME, 0)
@@ -111,7 +113,7 @@ class NotificationHelper(val ctx: Context) {
             doNotDisturbOff = compareTimes(now, start) >= 0 && compareTimes(now, stop) <= 0
         }
 
-        return notificationsNewMessage && doNotDisturbOff
+        return doNotDisturbOff && (percent < 100)
     }
 
     /* Thanks to:
