@@ -3,7 +3,9 @@ package io.github.z3r0c00l_2k.aquadroid.helpers
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.media.AudioAttributes
@@ -11,6 +13,7 @@ import android.media.RingtoneManager
 import android.net.Uri
 import android.os.Build
 import android.util.Log
+import io.github.z3r0c00l_2k.aquadroid.MainActivity
 import io.github.z3r0c00l_2k.aquadroid.R
 import io.github.z3r0c00l_2k.aquadroid.utils.AppUtils
 import java.util.*
@@ -79,15 +82,23 @@ class NotificationHelper(val ctx: Context) {
                 .setLargeIcon(
                     BitmapFactory.decodeResource(
                         ctx.resources,
-                        R.mipmap.ic_launcher
+                        io.github.z3r0c00l_2k.aquadroid.R.mipmap.ic_launcher
                     )
                 )
-                .setSmallIcon(R.drawable.ic_small_logo)
+                .setSmallIcon(io.github.z3r0c00l_2k.aquadroid.R.drawable.ic_small_logo)
                 .setAutoCancel(true)
 
             notification.setShowWhen(true)
 
             notification.setSound(Uri.parse(notificationsTone))
+
+            val notificationIntent = Intent(ctx, MainActivity::class.java)
+
+            notificationIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            val contentIntent =
+                PendingIntent.getActivity(ctx, 99, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+            notification.setContentIntent(contentIntent)
 
             return notification
         }
