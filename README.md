@@ -26,6 +26,6 @@ Please make sure to update tests as appropriat
 [GPL-3.0](https://github.com/z3r0c00l-2k/AquaDroid/blob/master/LICENSE)
 
 ## Credits
-All icons was downloaded from [flaticon](www.flaticon.com)
+All icons was downloaded from [Flaticon](https://www.flaticon.com)
 
-UI design was inspired from [Dribble](dribbble.com)
+UI design was inspired from [Dribble](https://dribbble.com)
