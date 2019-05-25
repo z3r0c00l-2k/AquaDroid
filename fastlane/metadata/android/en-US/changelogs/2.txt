@@ -1,0 +1,7 @@
+* Added an intro slider instead of splash screen
+* Added some animations
+* Changed time picker to 12 hours
+* Removed confirmation on intake report
+* Revamped launcher icon
+* Fix notification if already reached goal
+* Clickable notification
