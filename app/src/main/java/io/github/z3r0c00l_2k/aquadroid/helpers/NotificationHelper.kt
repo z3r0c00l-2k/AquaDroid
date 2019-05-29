@@ -60,6 +60,7 @@ class NotificationHelper(val ctx: Context) {
         notificationsTone: String?
     ): Notification.Builder {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            createChannels()
             return Notification.Builder(ctx.applicationContext, CHANNEL_ONE_ID)
                 .setContentTitle(title)
                 .setContentText(body)
@@ -82,10 +83,10 @@ class NotificationHelper(val ctx: Context) {
                 .setLargeIcon(
                     BitmapFactory.decodeResource(
                         ctx.resources,
-                        io.github.z3r0c00l_2k.aquadroid.R.mipmap.ic_launcher
+                        R.mipmap.ic_launcher
                     )
                 )
-                .setSmallIcon(io.github.z3r0c00l_2k.aquadroid.R.drawable.ic_small_logo)
+                .setSmallIcon(R.drawable.ic_small_logo)
                 .setAutoCancel(true)
 
             notification.setShowWhen(true)
