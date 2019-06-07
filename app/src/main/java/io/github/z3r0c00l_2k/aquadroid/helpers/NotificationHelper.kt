@@ -13,6 +13,7 @@ import android.media.RingtoneManager
 import android.net.Uri
 import android.os.Build
 import android.util.Log
+import androidx.core.app.NotificationCompat
 import io.github.z3r0c00l_2k.aquadroid.MainActivity
 import io.github.z3r0c00l_2k.aquadroid.R
 import io.github.z3r0c00l_2k.aquadroid.utils.AppUtils
@@ -58,51 +59,33 @@ class NotificationHelper(val ctx: Context) {
         title: String,
         body: String,
         notificationsTone: String?
-    ): Notification.Builder {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            createChannels()
-            return Notification.Builder(ctx.applicationContext, CHANNEL_ONE_ID)
-                .setContentTitle(title)
-                .setContentText(body)
-                .setColorized(true)
-                .setColor(Color.BLUE)
-                .setShowWhen(true)
-                .setLargeIcon(
-                    BitmapFactory.decodeResource(
-                        ctx.resources,
-                        R.mipmap.ic_launcher
-                    )
+    ): NotificationCompat.Builder? {
+        createChannels()
+        val notification = NotificationCompat.Builder(ctx.applicationContext, CHANNEL_ONE_ID)
+            .setContentTitle(title)
+            .setContentText(body)
+            .setLargeIcon(
+                BitmapFactory.decodeResource(
+                    ctx.resources,
+                    R.mipmap.ic_launcher
                 )
-                .setSmallIcon(R.drawable.ic_small_logo)
-                .setAutoCancel(true)
-        } else {
+            )
+            .setSmallIcon(R.drawable.ic_small_logo)
+            .setAutoCancel(true)
 
-            val notification = Notification.Builder(ctx.applicationContext)
-                .setContentTitle(title)
-                .setContentText(body)
-                .setLargeIcon(
-                    BitmapFactory.decodeResource(
-                        ctx.resources,
-                        R.mipmap.ic_launcher
-                    )
-                )
-                .setSmallIcon(R.drawable.ic_small_logo)
-                .setAutoCancel(true)
+        notification.setShowWhen(true)
 
-            notification.setShowWhen(true)
+        notification.setSound(Uri.parse(notificationsTone))
 
-            notification.setSound(Uri.parse(notificationsTone))
+        val notificationIntent = Intent(ctx, MainActivity::class.java)
 
-            val notificationIntent = Intent(ctx, MainActivity::class.java)
+        notificationIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+        val contentIntent =
+            PendingIntent.getActivity(ctx, 99, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT)
 
-            notificationIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
-            val contentIntent =
-                PendingIntent.getActivity(ctx, 99, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+        notification.setContentIntent(contentIntent)
 
-            notification.setContentIntent(contentIntent)
-
-            return notification
-        }
+        return notification
     }
 
     private fun shallNotify(): Boolean {
@@ -144,9 +127,9 @@ class NotificationHelper(val ctx: Context) {
         return currentCal.timeInMillis - runCal.timeInMillis
     }
 
-    fun notify(id: Long, notification: Notification.Builder) {
+    fun notify(id: Long, notification: NotificationCompat.Builder?) {
         if (shallNotify()) {
-            getManager()!!.notify(id.toInt(), notification.build())
+            getManager()!!.notify(id.toInt(), notification!!.build())
         } else {
             Log.i("AquaDroid", "dnd period")
         }

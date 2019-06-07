@@ -59,14 +59,6 @@ class MainActivity : AppCompatActivity() {
 
         notificStatus = sharedPref.getBoolean(AppUtils.NOTIFICATION_STATUS_KEY, true)
         val alarm = AlarmHelper()
-        alarm.cancelAlarm(this)
-        if (notificStatus) {
-            btnNotific.setImageDrawable(getDrawable(R.drawable.ic_bell))
-            alarm.setAlarm(this, sharedPref.getInt(AppUtils.NOTIFICATION_FREQUENCY_KEY, 30).toLong())
-        } else {
-            btnNotific.setImageDrawable(getDrawable(R.drawable.ic_bell_disabled))
-        }
-
 
         sqliteHelper.addAll(dateNow, 0, totalIntake)
 
