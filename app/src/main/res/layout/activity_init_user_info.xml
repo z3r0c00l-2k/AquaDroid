@@ -23,7 +23,7 @@
             android:layout_width="0dp"
             android:textAlignment="center"
             android:textSize="20sp"
-            android:textColor="@color/colorBalck"
+            android:textColor="@color/colorBlack"
             android:layout_height="wrap_content"
             android:id="@+id/textView3" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="24dp"
             app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="24dp"
@@ -129,7 +129,7 @@
                 android:layout_height="wrap_content"
                 app:rrbg_animateDrawables_enter="overshoot"
                 app:rrbg_animateTexts_enter="overshoot"
-                app:rrbg_dividerColor="@color/colorBalck"
+                app:rrbg_dividerColor="@color/colorBlack"
                 app:rrbg_dividerSize="1dp"
                 app:rrbg_radius="6dp"
                 app:rrbg_selectorColor="@color/colorSkyBlue"
@@ -149,7 +149,7 @@
                     app:rrb_drawablePadding="8dp"
                     app:rrb_drawableWidth="36dp"
                     app:rrb_ripple="true"
-                    app:rrb_rippleColor="@color/colorBalck"
+                    app:rrb_rippleColor="@color/colorBlack"
                     app:rrb_text="Male"
                     app:rrb_textColor="@color/grey"/>
 
@@ -162,7 +162,7 @@
                     app:rrb_drawablePadding="8dp"
                     app:rrb_drawableWidth="36dp"
                     app:rrb_ripple="true"
-                    app:rrb_rippleColor="@color/colorBalck"
+                    app:rrb_rippleColor="@color/colorBlack"
                     app:rrb_text="Female"
                     app:rrb_textColor="@color/grey"/>
         </co.ceryle.radiorealbutton.RadioRealButtonGroup>

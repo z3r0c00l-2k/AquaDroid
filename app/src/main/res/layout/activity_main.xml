@@ -96,7 +96,7 @@
                             android:layout_height="wrap_content"
                             android:src="@drawable/ic_water_glass"/>
                     <TextView
-                            android:textColor="@color/colorBalck"
+                            android:textColor="@color/colorBlack"
                             android:layout_marginTop="8dp"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"
                             android:text="200 ml"/>
@@ -121,7 +121,7 @@
                             android:layout_height="wrap_content"
                             app:srcCompat="@drawable/ic_coffee_cup"/>
                     <TextView
-                            android:textColor="@color/colorBalck"
+                            android:textColor="@color/colorBlack"
                             android:layout_marginTop="8dp"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"
                             android:text="150 ml"/>
@@ -142,7 +142,7 @@
                             android:layout_height="wrap_content"
                             app:srcCompat="@drawable/ic_tea"/>
                     <TextView
-                            android:textColor="@color/colorBalck"
+                            android:textColor="@color/colorBlack"
                             android:layout_marginTop="8dp"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"
                             android:text="150 ml"/>
@@ -175,7 +175,7 @@
                             android:layout_height="wrap_content"
                             app:srcCompat="@drawable/ic_cola"/>
                     <TextView
-                            android:textColor="@color/colorBalck"
+                            android:textColor="@color/colorBlack"
                             android:layout_marginTop="8dp"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"
                             android:text="200 ml"/>
@@ -196,7 +196,7 @@
                             android:layout_height="wrap_content"
                             app:srcCompat="@drawable/ic_juice"/>
                     <TextView
-                            android:textColor="@color/colorBalck"
+                            android:textColor="@color/colorBlack"
                             android:layout_marginTop="8dp"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"
                             android:text="200 ml"/>
@@ -217,7 +217,7 @@
                             android:layout_height="wrap_content"
                             app:srcCompat="@drawable/ic_milk"/>
                     <TextView
-                            android:textColor="@color/colorBalck"
+                            android:textColor="@color/colorBlack"
                             android:layout_marginTop="8dp"
                             android:layout_width="wrap_content" android:layout_height="wrap_content"
                             android:text="50 ml"/>

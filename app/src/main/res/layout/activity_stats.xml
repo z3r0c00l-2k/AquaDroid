@@ -40,7 +40,7 @@
                     android:id="@+id/waterLevelView"
                     android:layout_width="250dp"
                     android:layout_height="0dp"
-                    app:wlv_borderColor="@color/colorSecondaryLigher"
+                    app:wlv_borderColor="@color/colorSecondaryLighter"
                     app:wlv_borderWidth="8dp"
                     app:wlv_progressValue="70"
                     app:wlv_shapeType="circle"
@@ -74,7 +74,7 @@
                 <TextView
                         android:text="1100 ml"
                         android:textSize="20sp"
-                        android:textColor="@color/colorBalck"
+                        android:textColor="@color/colorBlack"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/remainingIntake"/>
@@ -96,7 +96,7 @@
                 <TextView
                         android:text="3100 ml"
                         android:textSize="20sp"
-                        android:textColor="@color/colorBalck"
+                        android:textColor="@color/colorBlack"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/targetIntake"/>
@@ -113,9 +113,9 @@
             app:layout_constraintStart_toEndOf="@+id/btnBack"
             android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="16dp"/>
     <TextView
-            android:text="Summury"
+            android:text="Summary"
             android:textSize="18sp"
-            android:textColor="@color/colorBalck"
+            android:textColor="@color/colorBlack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView14" app:layout_constraintStart_toStartOf="parent"
