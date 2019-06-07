@@ -10,8 +10,8 @@ android {
         applicationId "io.github.z3r0c00l_2k.aquadroid"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 3
-        versionName "1.1.1"
+        versionCode 4
+        versionName "1.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

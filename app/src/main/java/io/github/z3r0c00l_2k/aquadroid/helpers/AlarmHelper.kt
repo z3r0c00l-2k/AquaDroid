@@ -73,4 +73,16 @@ class AlarmHelper {
         )
         Log.i("AlarmHelper", "Cancelling alarms")
     }
+
+    fun checkAlarm(context: Context): Boolean {
+
+        val alarmIntent = Intent(context, NotifierReceiver::class.java)
+        alarmIntent.action = ACTION_BD_NOTIFICATION
+
+        return PendingIntent.getBroadcast(
+            context, 0,
+            alarmIntent,
+            PendingIntent.FLAG_NO_CREATE
+        ) != null
+    }
 }

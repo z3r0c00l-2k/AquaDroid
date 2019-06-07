@@ -1,0 +1,4 @@
+* Improved UI/UX
+* Fixed Summary chart X values
+* Fixed Notification Bug on Android O and Later
+* Added double back press to exit
