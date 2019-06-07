@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
@@ -75,6 +76,7 @@ class StatsActivity : AppCompatActivity() {
             chart.axisLeft.setDrawAxisLine(false)
             chart.xAxis.setDrawAxisLine(false)
             chart.setDrawMarkers(false)
+            chart.xAxis.labelCount = 5
             val rightAxix = chart.axisRight
             rightAxix.setDrawGridLines(false)
             rightAxix.setDrawZeroLine(false)
@@ -84,7 +86,7 @@ class StatsActivity : AppCompatActivity() {
             val dataSet = LineDataSet(entries, "Label")
             dataSet.setDrawCircles(false)
             dataSet.lineWidth = 2.5f
-            dataSet.color = resources.getColor(R.color.colorSecondaryDark)
+            dataSet.color = ContextCompat.getColor(this, R.color.colorSecondaryDark)
             dataSet.setDrawFilled(true)
             dataSet.fillDrawable = getDrawable(R.drawable.graph_fill_gradiant)
             dataSet.setDrawValues(false)

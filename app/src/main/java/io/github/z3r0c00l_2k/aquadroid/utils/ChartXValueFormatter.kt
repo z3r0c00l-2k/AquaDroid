@@ -5,8 +5,6 @@ import com.github.mikephil.charting.formatter.ValueFormatter
 
 class ChartXValueFormatter(val dateArray: ArrayList<String>) : ValueFormatter() {
     override fun getAxisLabel(value: Float, axis: AxisBase?): String {
-        if (value.toInt() <= dateArray.size)
-            return ""
-        return dateArray[value.toInt()]
+        return dateArray.getOrNull(value.toInt()) ?: ""
     }
 }
