@@ -3,6 +3,7 @@ package io.github.z3r0c00l_2k.aquadroid
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
 import android.util.TypedValue
 import androidx.appcompat.app.AppCompatActivity
 import com.daimajia.androidanimations.library.Techniques
@@ -26,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     private var selectedOption: Int? = null
     private var selectedOptionName: String? = null
     private var snackbar: Snackbar? = null
+    private var doubleBackToExitPressedOnce = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -235,5 +237,20 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            return
+        }
+
+        this.doubleBackToExitPressedOnce = true
+        Snackbar.make(
+            this.window.decorView.findViewById(android.R.id.content),
+            "Please click BACK again to exit",
+            Snackbar.LENGTH_SHORT
+        ).show()
+
+        Handler().postDelayed({ doubleBackToExitPressedOnce = false }, 1000)
+    }
 
 }
