@@ -208,7 +208,7 @@ class MainActivity : AppCompatActivity() {
             if (snackbar != null) {
                 snackbar?.dismiss()
             }
-            selectedOption = 100
+            selectedOption = 50
             selectedOptionName = "Milk"
             opAqua.background = getDrawable(outValue.resourceId)
             opCoffee.background = getDrawable(outValue.resourceId)
