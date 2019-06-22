@@ -10,12 +10,13 @@ AquaDroid simple android app to remind you to drink water and track your water i
 
 <img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/3-home.png" width="250px"> <img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/4-Stats.png" width="250px"> 
 
-
-
 ## Installation
 
-You can download the release apk from [releases](https://github.com/z3r0c00l-2k/AquaDroid/releases) or build it from the source.
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+     alt="Get it on F-Droid"
+     height="80">](https://f-droid.org/packages/io.github.z3r0c00l_2k.aquadroid/)
 
+You can also download the release apk from [releases](https://github.com/z3r0c00l-2k/AquaDroid/releases) or build it from source.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
