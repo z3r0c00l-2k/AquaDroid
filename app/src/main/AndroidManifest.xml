@@ -14,17 +14,21 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".WalkThroughActivity">
+        <activity android:name=".WalkThroughActivity"
+                  android:screenOrientation="portrait">
         </activity>
         <activity
                 android:name=".StatsActivity"
-                android:theme="@style/MainTheme">
+                android:theme="@style/MainTheme"
+                android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".InitUserInfoActivity">
+        <activity android:name=".InitUserInfoActivity"
+                  android:screenOrientation="portrait">
         </activity>
         <activity
                 android:name=".MainActivity"
-                android:theme="@style/MainTheme">
+                android:theme="@style/MainTheme"
+                android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
