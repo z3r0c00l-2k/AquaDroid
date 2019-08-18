@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">AquaDroid</string>
+    <string name="pref_notification_message_value">Hey… Vamos beber água?....</string>
+    <string name="add_info_text">Por favor, forneça algumas informações para personalizarmos sua experiência…!!</string>
+    <string name="str_continue">Continuar</string>
+    <string name="enter_your_name_hint">Insira seu nome</string>
+    <string name="age_hint">Insira sua idade</string>
+    <string name="weight_hint">Insira seu peso em Kg</string>
+    <string name="workout_hint">O quanto de exercício físico realiza em min/dia</string>
+    <string name="wakeup_hint">Que horas acorda</string>
+    <string name="sleeping_hint">Que horas costuma dormir</string>
+    <string name="tagline_text">Vamos mantê-lo hidratado...</string>
+    <string name="get_started">Iniciar</string>
+    <string name="walkthrough_text_one">60% da sua massa corporal é água. Seu corpo depende de água para sobreviver.
+    </string>
+    <string name="walkthough_text_two">A falta de água pode levar a desidratação. Até a desidratação leve pode deixá-lo sem energia e cansado.
+    </string>
+    <string name="walkthrough_text_three">Toda célula, tecido e órgão no seu corpo precisa de água para funcionar corretamente.
+    </string>
+</resources>
