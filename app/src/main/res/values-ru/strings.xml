@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">AquaDroid</string>
+    <string name="pref_notification_message_value">Привет… Давай выпьем немного воды…</string>
+    <string name="add_info_text">Пожалуйста, предоставьте некоторую информацию, чтобы настроить приложение под вас…</string>
+    <string name="str_continue">Продолжить</string>
+    <string name="enter_your_name_hint">Введите ваше имя</string>
+    <string name="age_hint">Введите свой возраст</string>
+    <string name="weight_hint">Введите свой вес в Кг</string>
+    <string name="workout_hint">Вы ежедневно тренируетесь в мин/день</string>
+    <string name="wakeup_hint">Ваше время пробуждения</string>
+    <string name="sleeping_hint">Ваше время сна</string>
+    <string name="tagline_text">Позволяет держать вас гидратированными...</string>
+    <string name="get_started">Начать</string>
+    <string name="walkthrough_text_one">Вода составляет 60 процентов вашего веса тела. Ваше тело зависит от воды, чтобы выжить.</string>
+    <string name="walkthough_text_two">Недостаток воды может привести к обезвоживанию организма. Даже легкое обезвоживание может истощить и ослабить вас.</string>
+    <string name="walkthrough_text_three">Каждая клетка, ткань и орган вашего тела нуждаются в воде для правильной работы.</string>
+</resources>
