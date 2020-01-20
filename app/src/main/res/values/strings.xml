@@ -6,11 +6,17 @@
     <string name="enter_your_name_hint">Enter your name</string>
     <string name="age_hint">Enter your age</string>
     <string name="weight_hint">Enter your weight in Kg</string>
-    <string name="workout_hint">You daily work out time in min/day</string>
+    <string name="workout_hint">Your daily work out time in min/day</string>
     <string name="wakeup_hint">Your wake up time</string>
     <string name="sleeping_hint">Your Sleep time</string>
     <string name="tagline_text">Lets keep you hydrated...</string>
     <string name="get_started">Get Started</string>
+    <string name="edit_info_text">Edit Your Info</string>
+    <string name="update">Update</string>
+    <string name="notif_setting_header">Notification Settings</string>
+    <string name="notif_messsage_hint">Notification Message</string>
+    <string name="notif_tone_hint">Notification Tone</string>
+    <string name="notif_freq_hint">Notification Frequency</string>
     <string name="walkthrough_text_one">Water is 60 percent of your body weight. Your body depends on water to
         survive.
     </string>

@@ -2,30 +2,38 @@
 <androidx.constraintlayout.widget.ConstraintLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:background="@color/colorSecondaryDark"
         android:id="@+id/bottomSheetParent"
         android:layout_width="match_parent" android:layout_height="wrap_content"
         android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView3">
+
     <TextView
-            android:text="Edit Your Info"
-            android:textSize="24sp"
-            android:textColor="@color/colorWhite"
+            android:id="@+id/textView7"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/textView7"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="24dp"
-            android:layout_marginStart="16dp"/>
-    <Button
-            android:text="Update"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
             android:textColor="@color/colorWhite"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/edit_info_text" />
+
+    <Button
+            android:id="@+id/btnUpdate"
             style="@android:style/Widget.Material.Button.Borderless"
-            android:drawableEnd="@drawable/ic_checked"
             android:layout_width="140dp"
             android:layout_height="wrap_content"
-            android:id="@+id/btnUpdate" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:drawableEnd="@drawable/ic_checked"
+            android:text="@string/update"
+            android:textColor="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/update" />
 
     <com.google.android.material.textfield.TextInputLayout
             android:layout_width="0dp"
@@ -40,11 +48,12 @@
         <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:paddingStart="10dp"
-                android:paddingBottom="10dp"
                 android:background="@null"
+                android:hint="@string/weight_hint"
+                android:inputType="numberSigned"
                 android:maxLength="3"
-                android:hint="Enter your weight in Kg" android:inputType="numberSigned"/>
+                android:paddingStart="10dp"
+                android:paddingBottom="10dp" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
             android:layout_width="0dp"
@@ -58,11 +67,12 @@
         <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:paddingStart="10dp"
-                android:paddingBottom="10dp"
                 android:background="@null"
+                android:hint="@string/workout_hint"
+                android:inputType="numberSigned"
                 android:maxLength="3"
-                android:hint=" Your daily work time in min/day" android:inputType="numberSigned"/>
+                android:paddingStart="10dp"
+                android:paddingBottom="10dp" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
             android:layout_width="0dp"
@@ -76,12 +86,13 @@
         <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:paddingStart="10dp"
+                android:background="@null"
                 android:clickable="true"
                 android:focusable="false"
-                android:paddingBottom="10dp"
-                android:background="@null"
-                android:hint="Your wake up time" android:inputType="numberSigned"/>
+                android:hint="@string/wakeup_hint"
+                android:inputType="numberSigned"
+                android:paddingStart="10dp"
+                android:paddingBottom="10dp" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
             android:layout_width="0dp"
@@ -95,22 +106,27 @@
         <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:paddingStart="10dp"
-                android:paddingBottom="10dp"
+                android:background="@null"
                 android:clickable="true"
                 android:focusable="false"
-                android:background="@null"
-                android:hint="Your Sleep time" android:inputType="numberSigned"/>
+                android:hint="@string/wakeup_hint"
+                android:inputType="numberSigned"
+                android:paddingStart="10dp"
+                android:paddingBottom="10dp" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <TextView
-            android:text="Notification Settings"
-            android:textSize="24sp"
-            android:textColor="@color/colorWhite"
+            android:id="@+id/totalIntakePercentage"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/totalIntakePercentage"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/notif_setting_header"
+            android:textColor="@color/colorWhite"
+            android:textSize="24sp"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/etSleepTime"/>
+            app:layout_constraintTop_toBottomOf="@+id/etSleepTime"
+            tools:text="@string/notif_setting_header" />
     <com.google.android.material.textfield.TextInputLayout
             android:layout_width="0dp"
             android:theme="@style/TextInputLayoutAppearance"
@@ -123,10 +139,11 @@
         <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:paddingStart="10dp"
-                android:paddingBottom="10dp"
                 android:background="@null"
-                android:hint="Notification message" android:inputType="text"/>
+                android:hint="@string/notif_messsage_hint"
+                android:inputType="text"
+                android:paddingStart="10dp"
+                android:paddingBottom="10dp" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
             android:layout_width="0dp"
@@ -140,21 +157,25 @@
         <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:paddingStart="10dp"
-                android:clickable="true"
-                android:paddingBottom="10dp"
                 android:background="@null"
-                android:hint="Notification tone" android:inputType="text" android:focusable="false"/>
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="@string/notif_tone_hint"
+                android:inputType="text"
+                android:paddingStart="10dp"
+                android:paddingBottom="10dp" />
     </com.google.android.material.textfield.TextInputLayout>
+
     <TextView
-            android:text="Notification Frequency"
-            android:textColor="@color/colorWhite"
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/textView2"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/etRingtone"/>
+            app:layout_constraintTop_toBottomOf="@+id/etRingtone"
+            tools:text="@string/notif_freq_hint" />
     <co.ceryle.radiorealbutton.RadioRealButtonGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -196,7 +217,8 @@
                 app:rrb_ripple="true"
                 app:rrb_rippleColor="@color/colorBlack"
                 app:rrb_text="45 Mins"
-                app:rrb_textColor="@color/colorBlack"/>
+                app:rrb_textColor="@color/colorBlack" />
+
         <co.ceryle.radiorealbutton.RadioRealButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
