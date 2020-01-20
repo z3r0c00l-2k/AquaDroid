@@ -20,8 +20,6 @@ class AppUtils {
 
         val USERS_SHARED_PREF = "user_pref"
         val PRIVATE_MODE = 0
-        val NAME_KEY = "name"
-        val GENDER_KEY = "gender"
         val WEIGHT_KEY = "weight"
         val WORK_TIME_KEY = "worktime"
         val TOTAL_INTAKE = "totalintake"

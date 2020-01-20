@@ -20,8 +20,6 @@ import java.util.*
 
 class InitUserInfoActivity : AppCompatActivity() {
 
-    private var gender: String = ""
-    private var name: String = ""
     private var weight: String = ""
     private var workTime: String = ""
     private var wakeupTime: Long = 0
@@ -37,14 +35,6 @@ class InitUserInfoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_init_user_info)
 
         sharedPref = getSharedPreferences(AppUtils.USERS_SHARED_PREF, AppUtils.PRIVATE_MODE)
-
-        radioGender.setOnClickedButtonListener { button, position ->
-            gender = if (position == 0) {
-                "Male"
-            } else {
-                "Female"
-            }
-        }
 
         wakeupTime = sharedPref.getLong(AppUtils.WAKEUP_TIME, 1558323000000)
         sleepingTime = sharedPref.getLong(AppUtils.SLEEPING_TIME_KEY, 1558369800000)
@@ -101,17 +91,10 @@ class InitUserInfoActivity : AppCompatActivity() {
             val imm: InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             imm.hideSoftInputFromWindow(init_user_info_parent_layout.windowToken, 0)
 
-            name = etName.editText!!.text.toString()
             weight = etWeight.editText!!.text.toString()
             workTime = etWorkTime.editText!!.text.toString()
 
             when {
-                TextUtils.isEmpty(name) -> Snackbar.make(it, "Please input your name", Snackbar.LENGTH_SHORT).show()
-                TextUtils.isEmpty(gender) -> Snackbar.make(
-                    it,
-                    "Please select your gender",
-                    Snackbar.LENGTH_SHORT
-                ).show()
                 TextUtils.isEmpty(weight) -> Snackbar.make(it, "Please input your weight", Snackbar.LENGTH_SHORT).show()
                 weight.toInt() > 200 || weight.toInt() < 20 -> Snackbar.make(
                     it,
@@ -131,8 +114,6 @@ class InitUserInfoActivity : AppCompatActivity() {
                 else -> {
 
                     val editor = sharedPref.edit()
-                    editor.putString(AppUtils.NAME_KEY, name)
-                    editor.putString(AppUtils.GENDER_KEY, gender)
                     editor.putInt(AppUtils.WEIGHT_KEY, weight.toInt())
                     editor.putInt(AppUtils.WORK_TIME_KEY, workTime.toInt())
                     editor.putLong(AppUtils.WAKEUP_TIME, wakeupTime)
