@@ -11,6 +11,12 @@
     <string name="sleeping_hint">Que horas costuma dormir</string>
     <string name="tagline_text">Vamos mantê-lo hidratado...</string>
     <string name="get_started">Iniciar</string>
+    <string name="edit_info_text">Edite suas informações</string>
+    <string name="update">Atualizar</string>
+    <string name="notif_setting_header">Configurações de notificação</string>
+    <string name="notif_messsage_hint">Mensagem de notificação</string>
+    <string name="notif_tone_hint">Tom da notificação</string>
+    <string name="notif_freq_hint">Frequência de notificações</string>
     <string name="walkthrough_text_one">60% da sua massa corporal é água. Seu corpo depende de água para sobreviver.
     </string>
     <string name="walkthough_text_two">A falta de água pode levar a desidratação. Até a desidratação leve pode deixá-lo sem energia e cansado.

@@ -11,6 +11,12 @@
     <string name="sleeping_hint">Ваше время сна</string>
     <string name="tagline_text">Позволяет держать вас гидратированными...</string>
     <string name="get_started">Начать</string>
+    <string name="edit_info_text">Изменить вашу информацию</string>
+    <string name="update">Обновить</string>
+    <string name="notif_setting_header">Настройки уведомлений</string>
+    <string name="notif_messsage_hint">Уведомление</string>
+    <string name="notif_tone_hint">Тон уведомления</string>
+    <string name="notif_freq_hint">Частота уведомлений</string>
     <string name="walkthrough_text_one">Вода составляет 60 процентов вашего веса тела. Ваше тело зависит от воды, чтобы выжить.</string>
     <string name="walkthough_text_two">Недостаток воды может привести к обезвоживанию организма. Даже легкое обезвоживание может истощить и ослабить вас.</string>
     <string name="walkthrough_text_three">Каждая клетка, ткань и орган вашего тела нуждаются в воде для правильной работы.</string>
