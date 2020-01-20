@@ -54,6 +54,14 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun updateValues() {
+        totalIntake = sharedPref.getInt(AppUtils.TOTAL_INTAKE, 0)
+
+        inTook = sqliteHelper.getIntook(dateNow)
+
+        setWaterLevel(inTook, totalIntake)
+    }
+
     override fun onStart() {
         super.onStart()
 
@@ -82,9 +90,7 @@ class MainActivity : AppCompatActivity() {
 
         sqliteHelper.addAll(dateNow, 0, totalIntake)
 
-        inTook = sqliteHelper.getIntook(dateNow)
-
-        setWaterLevel(inTook, totalIntake)
+        updateValues()
 
         btnMenu.setOnClickListener {
             val bottomSheetFragment = BottomSheetFragment(this)

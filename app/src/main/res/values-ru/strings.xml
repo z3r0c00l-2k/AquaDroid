@@ -9,7 +9,8 @@
     <string name="workout_hint">Вы ежедневно тренируетесь в мин/день</string>
     <string name="wakeup_hint">Ваше время пробуждения</string>
     <string name="sleeping_hint">Ваше время сна</string>
-    <string name="tagline_text">Позволяет держать вас гидратированными...</string>
+    <string name="tagline_text">Позволяет держать вас гидратированными…</string>
+    <string name="custom_intake_hint">Введите свой целевой показатель потребления в мл</string>
     <string name="get_started">Начать</string>
     <string name="edit_info_text">Изменить вашу информацию</string>
     <string name="update">Обновить</string>
