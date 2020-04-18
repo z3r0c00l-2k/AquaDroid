@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">AquaDroid</string>
+    <string name="pref_notification_message_value">Hey… Trinken Sie doch wieder etwas Wasser…</string>
+    <string name="add_info_text">Bitte geben Sie weitere Informationen ein, um die App für sie anzupassen…!!</string>
+    <string name="str_continue">Weiter</string>
+    <string name="enter_your_name_hint">Geben Sie Ihren Namen ein</string>
+    <string name="age_hint">Geben Sie Ihr Alter ein</string>
+    <string name="weight_hint">Geben Sie Ihr Gewicht in kg ein</string>
+    <string name="custom_intake_hint">Geben Sie Ihr persönliches Trinkziel in ml ein</string>
+    <string name="workout_hint">Wieviel Sport betreiben Sie in min/Tag</string>
+    <string name="wakeup_hint">Ihre Aufwachzeit</string>
+    <string name="sleeping_hint">Ihre Schlafenszeit</string>
+    <string name="tagline_text">Sehen wir, dass Sie hydriert bleiben…</string>
+    <string name="get_started">Los gehts</string>
+    <string name="edit_info_text">Ändern Sie Ihre Angaben</string>
+    <string name="update">Aktualisieren</string>
+    <string name="notif_setting_header">Benachrichtigungs-Einstellungen</string>
+    <string name="notif_messsage_hint">Nachricht der Benachrichtigung</string>
+    <string name="notif_tone_hint">Ton der Benachrichtigung</string>
+    <string name="notif_freq_hint">Benachrichtigungs-Häufigkeit</string>
+    <string name="walkthrough_text_one">Wasser macht 60 Prozent Ihres Körpergewichtes aus. Ihr Körper benötigt Wasser,
+        um zu überleben.
+    </string>
+    <string name="walkthough_text_two">Wassermangel führt zu Dehydrierung. Sogar leichte Dehydrierung kann Sie auslaugen
+        und zu Müdigkeit führen.
+    </string>
+    <string name="walkthrough_text_three">Jede Zelle, Gewebe und Organ in Ihrem Körper benötigt Wasser, um richtig zu funktionieren.
+    </string>
+</resources>
