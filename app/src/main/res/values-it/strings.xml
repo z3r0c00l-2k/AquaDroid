@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">AquaDroid</string>
-    <string name="pref_notification_message_value">Hey… Beviamo un po' d'acqua…</string>
+    <string name="pref_notification_message_value">Hey… Beviamo un po\' d\'acqua…</string>
     <string name="add_info_text">Per favore, inserisci qualche informazione su di te per personalizzare la app…!!</string>
     <string name="str_continue">Continua</string>
     <string name="enter_your_name_hint">Inserisci il tuo nome</string>
@@ -18,8 +18,8 @@
     <string name="notif_messsage_hint">Messaggio notifica</string>
     <string name="notif_tone_hint">Tono notifica</string>
     <string name="notif_freq_hint">Frequenza notifica</string>
-    <string name="walkthrough_text_one">L'acqua rappresenta il 60 percento del tuo peso corporeo. Il tuo corpo dipende dall'acqua per sopravvivere</string>
-    <string name="walkthough_text_two">La mancanza d'acqua può portare alla disidratazione. Anche una leggera disidratazione può portarti via le energie
+    <string name="walkthrough_text_one">L\'acqua rappresenta il 60 percento del tuo peso corporeo. Il tuo corpo dipende dall\'acqua per sopravvivere</string>
+    <string name="walkthough_text_two">La mancanza d\'acqua può portare alla disidratazione. Anche una leggera disidratazione può portarti via le energie
     e farti sentire stanco.
     </string>
     <string name="walkthrough_text_three">Ogni cellula, membrana e organo nel tuo corpo ha bisogno di acqua per funzionare.
