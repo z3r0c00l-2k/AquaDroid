@@ -28,8 +28,10 @@ class NotifierReceiver : BroadcastReceiver() {
 
         /* Notify */
         val nHelper = NotificationHelper(context)
-        @SuppressLint("ResourceType") val nBuilder = nHelper
-            .getNotification(title, messageToShow, notificationsTone)
+        @SuppressLint("ResourceType") val nBuilder = messageToShow?.let {
+            nHelper
+                .getNotification(title, it, notificationsTone)
+        }
         nHelper.notify(1, nBuilder)
 
     }

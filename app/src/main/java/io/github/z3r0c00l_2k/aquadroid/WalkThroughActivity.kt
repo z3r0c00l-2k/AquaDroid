@@ -43,7 +43,7 @@ class WalkThroughActivity : AppCompatActivity() {
             return 3
         }
 
-        override fun getItem(i: Int): Fragment? {
+        override fun getItem(i: Int): Fragment {
 
             when (i) {
                 0 -> {
@@ -57,9 +57,11 @@ class WalkThroughActivity : AppCompatActivity() {
                 2 -> {
                     return WalkThroughThree()
                 }
+                else -> {
+                    return WalkThroughOne()
+                }
             }
 
-            return null
         }
     }
 
