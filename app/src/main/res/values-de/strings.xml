@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">AquaDroid</string>
     <string name="pref_notification_message_value">Hey… Trinken Sie doch wieder etwas Wasser…</string>
-    <string name="add_info_text">Bitte geben Sie weitere Informationen ein, um die App für sich anzupassen…!!</string>
+    <string name="add_info_text">Bitte geben Sie weitere Informationen ein, um die App für sie anzupassen…!!</string>
     <string name="str_continue">Weiter</string>
     <string name="enter_your_name_hint">Geben Sie Ihren Namen ein</string>
     <string name="age_hint">Geben Sie Ihr Alter ein</string>
@@ -11,7 +11,7 @@
     <string name="wakeup_hint">Ihre Aufwachzeit</string>
     <string name="sleeping_hint">Ihre Schlafenszeit</string>
     <string name="tagline_text">Sehen wir, dass Sie hydriert bleiben…</string>
-    <string name="get_started">Los geht's</string>
+    <string name="get_started">Los gehts</string>
     <string name="edit_info_text">Ändern Sie Ihre Angaben</string>
     <string name="update">Aktualisieren</string>
     <string name="notif_setting_header">Benachrichtigungs-Einstellungen</string>
