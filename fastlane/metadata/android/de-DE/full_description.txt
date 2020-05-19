@@ -1,11 +1,11 @@
-AquaDroid erinnert dich daran, Wasser zu trinken und zeichnet dein Trinkverhalten auf.
+AquaDroid erinnert dich daran, Wasser zu trinken, und zeichnet dein Trinkverhalten auf.
 
 Diese App berechnet deinen Wasserbedarf anhand deines Gewichts, Alters und deiner täglichen Trainingszeit.
 
 Du kannst dich ans Trinken erinnern lassen. AquaDroid zeigt dir dann dein Trinkverhalten.
 
 
-Benötigte Android Berechtigungen:
+Benötigte Android-Berechtigungen:
 
     * RECEIVE_BOOT_COMPLETED : um Alarme für Erinnerungen zu registrieren
-    * VIBRATE : um Vibration zu steuern
+    * VIBRATE : um die Vibration zu steuern
