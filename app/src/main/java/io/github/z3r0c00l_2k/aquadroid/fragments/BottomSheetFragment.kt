@@ -21,6 +21,7 @@ import io.github.z3r0c00l_2k.aquadroid.helpers.SqliteHelper
 import io.github.z3r0c00l_2k.aquadroid.utils.AppUtils
 import kotlinx.android.synthetic.main.bottom_sheet_fragment.*
 import java.math.RoundingMode
+import java.text.DateFormat
 import java.text.DecimalFormat
 import java.util.*
 
@@ -49,6 +50,8 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val is24h = android.text.format.DateFormat.is24HourFormat(mCtx)
 
         sharedPref = mCtx.getSharedPreferences(AppUtils.USERS_SHARED_PREF, AppUtils.PRIVATE_MODE)
 
@@ -142,7 +145,7 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
                     etWakeUpTime.editText!!.setText(
                         String.format("%02d:%02d", selectedHour, selectedMinute)
                     )
-                }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false
+                }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), is24h
             )
             mTimePicker.setTitle("Select Wakeup Time")
             mTimePicker.show()
@@ -167,7 +170,7 @@ class BottomSheetFragment(val mCtx: Context) : BottomSheetDialogFragment() {
                     etSleepTime.editText!!.setText(
                         String.format("%02d:%02d", selectedHour, selectedMinute)
                     )
-                }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false
+                }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), is24h
             )
             mTimePicker.setTitle("Select Sleeping Time")
             mTimePicker.show()
