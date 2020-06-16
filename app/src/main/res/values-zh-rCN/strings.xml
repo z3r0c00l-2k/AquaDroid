@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">AquaDroid</string>
+    <string name="pref_notification_message_value">亲… 让我们喝点儿水吧…</string>
+    <string name="add_info_text">请提供一些信息为您定制体验…!!</string>
+    <string name="str_continue">继续</string>
+    <string name="enter_your_name_hint">输入您的名字</string>
+    <string name="age_hint">输入您的年龄</string>
+    <string name="weight_hint">以千克为单位输入您的体重</string>
+    <string name="custom_intake_hint">以毫升输入您的定制的饮水量目标</string>
+    <string name="workout_hint">以分钟为单位输入您每日锻炼时间</string>
+    <string name="wakeup_hint">您的起床时间</string>
+    <string name="sleeping_hint">您的入睡时间</string>
+    <string name="tagline_text">让我们一起来保持您的水润…</string>
+    <string name="get_started">准备开始</string>
+    <string name="edit_info_text">编辑您的信息</string>
+    <string name="update">更新</string>
+    <string name="notif_setting_header">提醒设定</string>
+    <string name="notif_messsage_hint">提醒消息</string>
+    <string name="notif_tone_hint">提醒铃声</string>
+    <string name="notif_freq_hint">提醒频率</string>
+    <string name="walkthrough_text_one">水占您体重的百分之六十。您的身体依赖水来存活。
+    </string>
+    <string name="walkthough_text_two">缺少水分将导致脱水症状。即使中度的脱水也会使您感到疲倦
+    </string>
+    <string name="walkthrough_text_three">您身体中的每一个细胞、组织和器官都需要水分才能正常工作。
+    </string>
+</resources>
