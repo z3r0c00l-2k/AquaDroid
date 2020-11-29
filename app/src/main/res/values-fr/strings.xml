@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">AquaDroid</string>
+    <string name="pref_notification_message_value">Hey… et si on buvait un peu d'eau…</string>
+    <string name="add_info_text">Veuillez fournir quelques informations sur votre profil afin de personnaliser votre expérience</string>
+    <string name="str_continue">Continuer</string>
+    <string name="enter_your_name_hint">Votre nom</string>
+    <string name="age_hint">Votre age</string>
+    <string name="weight_hint">Votre poids en kg</string>
+    <string name="custom_intake_hint">Votre objectif de consommation par jour en ml</string>
+    <string name="workout_hint">Votre durée d'exercice physique par jour en minutes</string>
+    <string name="wakeup_hint">Heure de réveil</string>
+    <string name="sleeping_hint">Heure de coucher</string>
+    <string name="tagline_text">Faisons en sorte maintenir votre hydratation…</string>
+    <string name="get_started">Démarrer</string>
+    <string name="edit_info_text">Modifier vos informations</string>
+    <string name="update">Mise à jour</string>
+    <string name="notif_setting_header">Paramètres de notification</string>
+    <string name="notif_messsage_hint">Message de notification</string>
+    <string name="notif_tone_hint">Sonnerie de notification</string>
+    <string name="notif_freq_hint">Fréquence de notification/string>
+    <string name="walkthrough_text_one">L'eau représente 60 pour cent de votre poids total. Votre corps a besoin d'eau pour survivre.
+    </string>
+    <string name="walkthough_text_two">Le manque d'eau peut amener à la déshydratation. Même une forme légère peut impacter votre énergie et accentuer votre fatigue.
+    </string>
+    <string name="walkthrough_text_three">Chaque cellule, tissu et organe de votre corps a besoin d'eau pour fonctionnement correctement.
+    </string>
+</resources>
