@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.github.mikephil.charting.animation.Easing
+import com.github.mikephil.charting.components.LimitLine
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
@@ -16,6 +17,7 @@ import io.github.z3r0c00l_2k.aquadroid.helpers.SqliteHelper
 import io.github.z3r0c00l_2k.aquadroid.utils.AppUtils
 import io.github.z3r0c00l_2k.aquadroid.utils.ChartXValueFormatter
 import kotlinx.android.synthetic.main.activity_stats.*
+import kotlin.math.max
 
 
 class StatsActivity : AppCompatActivity() {
@@ -77,11 +79,20 @@ class StatsActivity : AppCompatActivity() {
             chart.xAxis.setDrawAxisLine(false)
             chart.setDrawMarkers(false)
             chart.xAxis.labelCount = 5
-            val rightAxix = chart.axisRight
-            rightAxix.setDrawGridLines(false)
-            rightAxix.setDrawZeroLine(false)
-            rightAxix.setDrawAxisLine(false)
-            rightAxix.setDrawLabels(false)
+
+            val leftAxis = chart.axisLeft
+            leftAxis.axisMinimum = 0f // always start at zero
+            val maxObject: Entry = entries.maxBy { it.y }!! // entries is not empty here
+            leftAxis.axisMaximum = max(a = maxObject.y, b = 100f) + 15f // 15% margin on top
+            val targetLine = LimitLine(100f, "")
+            targetLine.enableDashedLine(5f, 5f, 0f)
+            leftAxis.addLimitLine(targetLine)
+
+            val rightAxis = chart.axisRight
+            rightAxis.setDrawGridLines(false)
+            rightAxis.setDrawZeroLine(false)
+            rightAxis.setDrawAxisLine(false)
+            rightAxis.setDrawLabels(false)
 
             val dataSet = LineDataSet(entries, "Label")
             dataSet.setDrawCircles(false)

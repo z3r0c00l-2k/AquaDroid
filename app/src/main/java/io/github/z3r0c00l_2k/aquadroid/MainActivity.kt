@@ -1,5 +1,6 @@
 package io.github.z3r0c00l_2k.aquadroid
 
+import android.app.NotificationManager
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -119,6 +120,11 @@ class MainActivity : AppCompatActivity() {
                 op200ml.background = getDrawable(outValue.resourceId)
                 op250ml.background = getDrawable(outValue.resourceId)
                 opCustom.background = getDrawable(outValue.resourceId)
+
+                // remove pending notifications
+                val mNotificationManager : NotificationManager =
+                    getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+                mNotificationManager.cancelAll()
             } else {
                 YoYo.with(Techniques.Shake)
                     .duration(700)

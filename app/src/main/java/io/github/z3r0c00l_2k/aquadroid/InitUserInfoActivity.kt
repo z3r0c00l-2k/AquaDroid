@@ -29,6 +29,9 @@ class InitUserInfoActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val is24h = android.text.format.DateFormat.is24HourFormat(this.applicationContext)
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         }
@@ -56,7 +59,7 @@ class InitUserInfoActivity : AppCompatActivity() {
                     etWakeUpTime.editText!!.setText(
                         String.format("%02d:%02d", selectedHour, selectedMinute)
                     )
-                }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false
+                }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), is24h
             )
             mTimePicker.setTitle("Select Wakeup Time")
             mTimePicker.show()
@@ -80,7 +83,7 @@ class InitUserInfoActivity : AppCompatActivity() {
                     etSleepTime.editText!!.setText(
                         String.format("%02d:%02d", selectedHour, selectedMinute)
                     )
-                }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), false
+                }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), is24h
             )
             mTimePicker.setTitle("Select Sleeping Time")
             mTimePicker.show()

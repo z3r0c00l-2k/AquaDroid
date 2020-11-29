@@ -21,7 +21,7 @@ You can also download the release apk from [releases](https://github.com/z3r0c00
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-Please make sure to update tests as appropriat
+Please make sure to update tests as appropriate
 
 ## License
 [GPL-3.0](https://github.com/z3r0c00l-2k/AquaDroid/blob/master/LICENSE)

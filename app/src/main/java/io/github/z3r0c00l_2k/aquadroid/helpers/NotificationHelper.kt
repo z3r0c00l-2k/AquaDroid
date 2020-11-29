@@ -92,23 +92,34 @@ class NotificationHelper(val ctx: Context) {
         val prefs = ctx.getSharedPreferences(AppUtils.USERS_SHARED_PREF, AppUtils.PRIVATE_MODE)
         val sqliteHelper = SqliteHelper(ctx)
 
-        val percent = sqliteHelper.getIntook(AppUtils.getCurrentDate()!!) * 100 / prefs.getInt(AppUtils.TOTAL_INTAKE, 0)
-
-        var doNotDisturbOff = true
-
         val startTimestamp = prefs.getLong(AppUtils.WAKEUP_TIME, 0)
         val stopTimestamp = prefs.getLong(AppUtils.SLEEPING_TIME_KEY, 0)
+        val totalIntake = prefs.getInt(AppUtils.TOTAL_INTAKE, 0)
 
-        if (startTimestamp > 0 && stopTimestamp > 0) {
-            val now = Calendar.getInstance().time
+        if (startTimestamp == 0L || stopTimestamp == 0L || totalIntake == 0)
+            return false
 
-            val start = Date(startTimestamp)
-            val stop = Date(stopTimestamp)
+        val percent = sqliteHelper.getIntook(AppUtils.getCurrentDate()!!) * 100 / totalIntake
 
-            doNotDisturbOff = compareTimes(now, start) >= 0 && compareTimes(now, stop) <= 0
-        }
+        val now = Calendar.getInstance().time
 
-        return doNotDisturbOff && (percent < 100)
+        val start = Date(startTimestamp)
+        val stop = Date(stopTimestamp)
+
+        val passedSeconds = compareTimes(now, start)
+        val totalSeconds = compareTimes(stop, start)
+
+        // percentage which should have been consumed by now:
+        val currentTarget = passedSeconds.toFloat() / totalSeconds.toFloat() * 100f
+
+        val doNotDisturbOff = passedSeconds >= 0 && compareTimes(now, stop) <= 0
+
+        val notify = doNotDisturbOff && (percent < currentTarget)
+        Log.i("AquaDroid",
+            "notify: $notify, dndOff: $doNotDisturbOff, " +
+                    "currentTarget: $currentTarget, percent: $percent"
+        )
+        return notify
     }
 
     /* Thanks to:
@@ -130,8 +141,6 @@ class NotificationHelper(val ctx: Context) {
     fun notify(id: Long, notification: NotificationCompat.Builder?) {
         if (shallNotify()) {
             getManager()!!.notify(id.toInt(), notification!!.build())
-        } else {
-            Log.i("AquaDroid", "dnd period")
         }
     }
 
